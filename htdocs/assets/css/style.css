@@ -1,0 +1,359 @@
+
+/*****NAVBAR*****/
+#logo{
+    font-family: 'Style Script', cursive;
+}
+
+
+/****FINNAVBAR*****/
+/*******CAROUSELHOME********/
+.carouselhome{
+    height: 50%;
+}
+.clip{
+    background-position: center;
+    background-size: 50%;
+}
+/*******Media Carousel***********/
+@media (max-width: 565px) { 
+  .carousel.carousel-slider img{
+      height: 300px;
+  }
+}
+@media (max-width: 780px) { 
+.carousel.carousel-slider {
+    height: auto;
+}
+}
+@media (max-width: 300px) { 
+.carousel.carousel-slider{
+    height: auto;
+}
+}
+/*******FIN Media Carousel***********/   
+ /********INTRO***********/
+ .intro{
+     text-align: center;
+     font-family: 'Style Script', cursive;  
+ }
+ .intro p{
+     font-size: 27px
+ }
+ #buttonhover{
+     color: black;
+     font-family:'Times New Roman', Times, serif
+ }
+#buttonhover:hover{
+    font-family:'Times New Roman', Times, serif;
+    color: rgb(102, 95, 95);
+}
+
+.triangle1{
+    display: flex;
+    justify-content: center;
+   
+}   
+
+  /*****MEDIA INTRO*********/
+  @media (max-width: 699px) {
+    .svg--lg {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 700px) {
+    .svg--sm {
+      display: none;
+    }
+  }
+  /*****FIN MEDIA INTRO*********/
+
+/********FIN INTRO***********/
+/********Carégorie***********/
+  .Categorie{
+    font-family: 'Style Script', cursive;  
+    text-align: center;
+  }
+  .type{
+    background-color: rgba(0, 0, 0, 0.877);
+    height: 230px;
+    
+  }
+  .type h3{
+    padding: 10px;
+    color: white;
+ 
+  }
+  .type p{
+    font-size: 17px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 3vw;
+  }
+  .gold{
+    background-image: url('/assets/images/pngwing.com\ \(15\).png');
+    background-position: center;
+
+  }
+  /***********3gros**************/
+  #buttondecouvrire{
+    color: white;
+  }
+  
+ #picturetroisgros{
+   background-position: center;
+   background-size: cover;
+   height: auto;
+ }
+ #texttroisgros{
+  
+  padding: 20px;
+  height: auto;
+  margin-bottom: 2vw;
+  opacity:0;
+  top: -30px;
+ transition-duration: 2s;
+ transition-delay: 0.8s;
+ background-color: white;
+ height: 348px; 
+ }
+ #decohome{
+  border: thick double #D0C07A;
+  height: 348px;
+  padding: 20px;
+ }
+.active#texttroisgros{
+  top: 0;
+  opacity: 1;
+}
+ #texttroisgros p{
+   font-size: 15px;
+   font-family: 'Times New Roman', Times, serif;
+   text-align: justify;
+ }
+ .troisgros{
+   padding: 6px;
+ }
+#picturetroisgros{
+  opacity:0;
+  left: -30px;
+  transition-duration: 2s;
+  background-color: white;
+}
+.active#picturetroisgros{
+  left: 0;
+  opacity: 1;
+}
+#picturetroisgros img{
+  height: 348px;
+}
+.active#picturetroisgros{
+  left: 0;
+  opacity: 1;
+}
+ /***********Media troisgros / Animation*****************/
+ @media (max-width: 595px) {
+  .type h3 {
+    font-size: large;
+  }
+  .typeimgs img{
+    width: 130px;
+  }
+  .type p{
+    font-size: small;
+    text-align: center;
+  }
+  .btn.waves-effect{
+    font-size: x-small;
+  }
+  #picturetroisgros img{
+    height: auto;
+  }
+  #texttroisgros{
+    height: auto;
+  }
+  #picturechamplong img {
+    height: auto;
+  }
+  #textchamplong{
+    height: auto;
+  }
+  #picturerongefer img {
+    height: auto;
+  }
+  #textrongefer{
+    height: auto;
+  }
+  #pictureprince img {
+    height: auto;
+  }
+  #textprince{
+    height: 435px;
+  }
+
+}
+
+ /***********FIN Media troisgros*****************/
+ /******Carouseltyperestaurant*******/
+ .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+
+/********FIN Carégorie***********/
+/***************TEMOIGNAGE************************/
+.texttemoignages{
+  text-align: center;
+  font-family: 'Style Script', cursive;  
+}
+.card-image img{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  background-color: rgb(189, 189, 189);
+}
+.card-image{
+  display: flex;
+  justify-content: center;
+}
+.temoignagneronan{
+  padding: 10px;
+}
+.name{
+  text-align: center;
+  padding-top: 5px;
+  color: #d0c07a;
+  font-weight: bold;
+  font-family: 'Style Script', cursive;  
+  font-size: x-large;
+}
+.card-content p {
+  text-align: justify;
+  font-family: 'Times New Roman', Times, serif;
+}
+.temoignagneuser{
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  padding: 30px;
+  height: 439px;
+}
+.note{
+  text-align: center;
+}
+.com p{
+  color: #717171;
+  font-size: small;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+.comrestau{
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+.lienrestaucom{
+  color: #21242c;
+}
+.lienrestaucom:hover{
+  color: #a68a64;
+}
+/***************FIN TEMOIGNAGE************************/
+/************Inscriptionpub********************/
+.inscriptionpub{
+  background-color: #21242c;
+}
+.row.pubdiner{
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+.textpub{
+  text-align: center;
+  color: white;
+  border-top:1px solid white;
+  border-bottom: 1px solid white;
+  padding: 10px;
+}
+
+/************Inscriptionpub********************/
+
+ /***********FOOTER****************/
+ .footer{
+  background-color: black;
+  padding: 15px;
+  }
+  .copyright{
+    color: gray;
+    text-align: center;
+  }
+  .pub{
+    text-decoration: unset;
+    color: white;
+  }
+  .contact{
+    color: white;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .logocontact{
+    color: white;
+    padding: 10px;
+  }
+  .footercontact{
+    margin-bottom: 0%;
+  }
+
+ /***********FIN FOOTER****************/
+ @media (max-width: 601px) {
+  .type{
+    height:142px ;
+  }
+  .pubdiner{
+    display: block;
+  }
+
+}
+.reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}

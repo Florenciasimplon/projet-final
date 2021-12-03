@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="inscription.css">
+  <link rel="stylesheet" href="compte.css">
+  <!---->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+  <title>HouseDîner</title>
+</head>
+
+<body>
+  <header>
+    <!--NAVBAR COMPTE CO-->
+    <nav>
+      <div class="nav-wrapper black">
+        <a href="#!" class=" center brand-logo" id="logo">HouseDîner</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <!-- <li><a href="badges.html">Components</a></li> -->
+          <li><a href="/moncompte.html"><i class="material-icons">account_circle</i></a></li>
+          <li><a href="/#list"><i class="material-icons">restaurant</i></a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="/moncompte.html"><i class="material-icons">account_circle</i>Mon compte</a></li>
+      <li><a href="sass.html"><i class="material-icons">access_time</i> Mes réservation</a></li>
+      <li><a href="/#list"><i class="material-icons">restaurant</i>Catégorie Restaurant</a></li>
+      <li><a href="sass.html"><i class="material-icons">phonelink_erase</i>Déconnexion</a></li>
+    </ul>
+  </header>
+  <!--FIN NAVBAR CONNEXION-->
+  <!----BACKGROUND-->
+  <div class="row">
+    <div class="col s4 m4 backgroundimg3">
+
+    </div>
+    <div class="col s4 m4  backgroundimg4">
+
+    </div>
+    <div class="col s4 m4 backgroundimg5">
+
+    </div>
+  </div>
+  <!----FINBACKGROUND-->
+  <!-----Connexion----->
+  <div class="titleinscription">
+    <h4>Connexion</h4>
+  </div>
+  <div class="connexion">
+    <div class="container" id="connexion">
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix" style="color: #d0c07a;">email</i>
+              <input id="email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix" style="color: #d0c07a;">lock</i>
+              <input id="password" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <button class="btn waves-effect btn-small" style="background-color: rgba(0, 0, 0, 0.863) ; width: 300px; "
+            type="submit" name="action">Connexion
+            <i class="material-icons right">check</i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-----FINConnexion----->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://unpkg.com/flickity@2.2.2/dist/flickity.pkgd.min.js"></script>
+  <script src="JS/navbar.js"></script>
+  <script src="JS/carouselhome.js"></script>
+  <script src="JS/accordion.js"></script>
+  <script src="JS/animation.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HouseDiner{% endblock %}
+
+{% block body %}
+  <!----BACKGROUND-->
+   <div class="row">
+    <div class="col s4 m4 backgroundimg6">
+        
+    </div>
+    <div class="col s4 m4  backgroundimg7">
+        
+    </div>
+    <div class="col s4 m4 backgroundimg8">
+        
+    </div>
+</div>
+<!----FINBACKGROUND-->
+<div class="modifierrestaurant">
+    <div class="container">
+    <h3>Modifier mon restaurant</h3>
+
+    {{ include('restaurant/_form.html.twig')}}
+
+    {# <a href="{{ path('restaurant_index') }}">back to list</a> #}
+
+    {{ include('restaurant/_delete_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}

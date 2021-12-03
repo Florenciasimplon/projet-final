@@ -1,0 +1,96 @@
+{{ form_start(form) }}
+
+     <div class="row">
+    <div class="col s12 m12">
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix"style="color: #d0c07a;">restaurant</i>
+            {{form_widget(form.nom_restaurant)}}
+            {{form_label(form.nom_restaurant)}}
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m12">
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix"style="color: #d0c07a;">location_on</i>
+            {{form_widget(form.adresse_restaurant)}}
+            {{form_label(form.adresse_restaurant)}}
+          </div>
+        </div>
+    </div>
+     <div class="col s12 m12">
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix"style="color: #d0c07a;">location_on</i>
+            {{form_widget(form.codepostal_restaurant)}}
+            {{form_label(form.codepostal_restaurant)}}
+          </div>
+        </div>
+    </div>
+   <div class="col s12 m12">
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix"style="color: #d0c07a;">local_phone</i>
+            {{form_widget(form.telephone_restaurant)}}
+            {{form_label(form.telephone_restaurant)}}
+          </div>
+        </div>
+    </div>
+    <div class="col s12 m12">   
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix"style="color: #d0c07a;">edit</i>
+                {{ form_label(form.description) }}
+                {{ form_widget(form.description) }}
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12">
+      <div class="row">
+            <div class="file-field input-field">
+            <div class="btn waves-black btn-small"style="background-color: #d0c07a" >
+                <span>Telecharger</span>
+                {{form_widget(form.picture_restaurant)}}
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Ajouter des photos de votre restaurant">
+            </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="selection">
+      <h5>Équipements</h5>
+      <div class="col m3">
+        <label>
+        {{form_widget(form.parking)}}
+          <span>Parking</span>
+        </label>
+      </div>
+      <div class="col m3">
+        <label>
+        {{form_widget(form.animaux)}}
+          <span>animaux</span>
+        </label>
+      </div>
+      <div class="col m3">
+        <label>
+        {{form_widget(form.climatisation)}}
+          <span>climatisation</span>
+        </label>
+      </div>
+      <div class="col m3">
+        <label>
+        {{form_widget(form.acces_handicape)}}
+          <span>Accès handicapés</span>
+        </label>
+      </div>
+  </div>
+</div>
+    <div class="buttonsave">
+     <button class="btn waves-effect btn-small center" style="background-color: rgba(0, 0, 0, 0.863) ; width: 300px; " type="submit" name="action">
+        <i class="material-icons right">check</i>{{ button_label|default('Sauvegarder') }}
+     </button>
+    </div>
+{{ form_end(form) }}

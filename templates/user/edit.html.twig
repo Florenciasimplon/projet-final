@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfilController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+   <!----BACKGROUND-->
+   <div class="row">
+    <div class="col s4 m4 backgroundimg6">
+        
+    </div>
+    <div class="col s4 m4  backgroundimg7">
+        
+    </div>
+    <div class="col s4 m4 backgroundimg8">
+        
+    </div>
+</div>
+<!----FINBACKGROUND-->
+{% for message in app.flashes('success') %}
+        <div class="messagemodif">
+            <div class="alert alert-success" id="alertemodif">
+                {{ message }}
+            </div>
+        </div>
+        {% endfor %}
+<!---PROFIL---->
+<div class="profilcompte">
+    <div class="titleprofil">
+        <h3>Mon Compte</h3>
+    </div>
+    <div class="nameuser">
+        <h6>Bonjour {{user.prenom}}</h6>
+    </div> 
+    <div class="container">
+        <div class="row">
+            <div class="col s12 styleimg">
+                <img class="profileimg" src={{asset("/uploads/picture_profil/" ~ user.picture)}}>
+            </div>
+        </div>
+        <ul class="collapsible popout">
+            <li>
+              <div class="collapsible-header"><i class="material-icons"style="color: #70776E;">person_pin</i>Profil</div>
+                    <div class="collapsible-body">                        
+                    <div class="modififer">
+                        <h4>Modifier</h4>
+                    </div>
+                                {{ include('user/_form.html.twig') }}
+                        <div class="col s12 center">
+                          <button class="btn waves-effect btn-small" style="background-color: rgba(0, 0, 0, 0.863) ; width: 200px; " type="submit" name="action">
+                                 <i class="material-icons right">check</i>{{ button_label|default('Sauvegarder') }}
+                          </button>
+                        </div>
+                         {# <a href="{{path ('profil')}}"><button class="waves-effect  btn-small" type="submit" name="action"
+                            style="background-color:#d0c07a; height: 30px; color: black;" id="buttonmodif">Modifier
+                            <i class="material-icons right" id="fleche">edit</i>
+                          </button></a>   #}
+                    </div>
+                    
+             </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons"style="color: #70776E;">restore</i>Mes reservations</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons"style="color: #70776E;">comment</i>Mes Commentaires</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            {% if not is_granted('ROLE_RESTAURATEUR') == false %}
+                   <li>
+                <div class="collapsible-header"><i class="fa fa-home" aria-hidden="true"style="color: #70776E;"></i> Mon restaurant</div>
+                <div class="collapsible-body">
+                    <div Class="col s12 m12" id="myrestaurant">
+                        <i class="material-icons"style="color: #d0c07a;">store</i> 
+                        <a href={{path("restaurant_show", {id: restaurant.id })}} class="lienmodif"> Visualiser mon restaurant</a>
+                    </div>
+                    <div Class="col s12 m12" id="myrestaurant">
+                       <i class="material-icons"style="color: #d0c07a;">mode_edit</i> 
+                      <a href="{{ path('restaurant_edit', {'id': restaurant.id}) }}" class="lienmodif">Modifier mon restaurant</a> 
+                    </div>
+                    
+                     <div Class="col s12 m12" id="myrestaurant">
+                       <i class="material-icons"style="color: #d0c07a;">add_box</i> 
+                      <a href="{{ path('menu_new', {'id': restaurant.id}) }}" class="lienmodif">Ajouter un menu</a>
+                    </div>
+                      <div Class="col s12 m12" id="myrestaurant">
+                      <i class="material-icons"style="color: #d0c07a;">room_service</i> 
+                      <a href="{{ path('menu_new', {'id': restaurant.id}) }}" class="lienmodif">Visualiser mes menus</a>
+                    </div>
+                 </div>
+            </li>
+            {% endif %}
+       </ul>
+                
+    </div>
+</div>
+
+<!---FINPROFIL---->
+<div class="peinture">
+       <div class="col s6 m6 peint">
+            <img src="/assets/images/profil/pngwing.com (27).png" style="width: 300px;">
+        </div>
+</div>
+{% endblock %}
+

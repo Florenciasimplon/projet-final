@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfilController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+   <!----BACKGROUND-->
+   <div class="row">
+    <div class="col s4 m4 backgroundimg6">
+        
+    </div>
+    <div class="col s4 m4  backgroundimg7">
+        
+    </div>
+    <div class="col s4 m4 backgroundimg8">
+        
+    </div>
+</div>
+<!----FINBACKGROUND-->
+<!---PROFIL---->
+<div class="profilcompte">
+ {{dump(user)}}
+    <div class="titleprofil">
+        <h3>Mon Compte</h3>
+    </div>
+    <div class="nameuser">
+        <h6>Bonjour {{user.prenom}}</h6>
+    </div> 
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 styleimg">
+                <img class="profileimg" src={{asset("uploads/picture_profil" ~ user.picture)}}>
+            </div>
+        </div>
+        <ul class="collapsible popout">
+            <li>
+              <div class="collapsible-header"><i class="material-icons"style="color: #d0c07a;">person_pin</i>Profil</div>
+                <div class="collapsible-body">
+                   <div class="row">
+                       <div class="col s6">
+                        <h6><i class="material-icons"style="color: gray;">assignment_ind</i>  {{user.nom}} {{user.prenom}}</h6>
+                       </div>
+                       <div class="col s6">
+                        <h6><i class="material-icons"style="color: gray;">location_city</i>   {{user.adresse}} {{user.codePostal}}</h6>
+                        </div>
+                        <div class="col s6">
+                            <h6><i class="material-icons"style="color: gray;">cake</i>  {{user.dateAnniversaire|date("d M Y")}} </h6>
+                        </div>
+                        <div class="col s6">
+                            <h6><i class="material-icons"style="color: gray;">local_phone</i>  {{user.telephone}}</h6>
+                        </div>
+                        <div class="col s6">
+                            <h6><i class="material-icons"style="color: gray;">mail</i>  {{user.email}}</h6>
+                        </div>
+                             <div class="col s6">
+                             {# {{include('profil/_form.html.twig')}} #}
+                        </div>
+                 
+                         {# <a href="{{path ('profil')}}"><button class="waves-effect  btn-small" type="submit" name="action"
+                            style="background-color:#d0c07a; height: 30px; color: black;" id="buttonmodif">Modifier
+                            <i class="material-icons right" id="fleche">edit</i>
+                          </button></a>   #}
+                   </div>
+                </div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="material-icons"style="color: #d0c07a;">restore</i>Mes reservations</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="material-icons"style="color: #d0c07a;">comment</i>Mes Commentaires</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+          </ul>
+                
+    </div>
+</div>
+<!---FINPROFIL---->
+<div class="peinture">
+       <div class="col s6 m6 peint">
+            <img src="/assets/images/profil/pngwing.com (27).png" style="width: 300px;">
+        </div>
+</div>
+{% endblock %}

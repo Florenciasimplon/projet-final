@@ -1,0 +1,42 @@
+.backgroundimg3{
+    background-image: url('/assets/images/moncompte/pexels-ron-lach-8921580.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+}
+.backgroundimg4{
+    background-image: url("/assets/images/moncompte/pexels-alem-sánchez-612790.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: grayscale(100%);
+    height: 300px;
+}
+.backgroundimg5{
+    background-image: url('/assets/images/moncompte/pexels-alleksana-4050974.jpg');
+     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+}
+#connexion{
+    display: flex;
+    justify-content: center;
+    
+}
+.test{
+    background-image: url('/assets/images/moncompte/pngwing.com\ \(21\).png');
+    background-repeat: no-repeat;
+    height: 100PX;
+}
+#message_connexion{
+    font-family: 'Times New Roman', Times, serif;
+}
+a.inscrivez{
+    color: #d0c07a;
+    text-decoration: unset;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}

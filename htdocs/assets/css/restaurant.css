@@ -1,0 +1,59 @@
+.carouselrestaurant{
+    background-image: url('./images/pngwing.com\ \(15\).png');
+    background-repeat: no-repeat;
+}
+.carouselrestaurant h3{
+    text-align: center;
+    font-family: 'Style Script', cursive;  
+    padding: 10px;
+    color: #d0c07a;
+}
+.decouvrir{
+    padding: 10px;
+}
+#descriptif{
+    padding: 10px;
+    text-align: justify;
+    font-family: 'Times New Roman', Times, serif;
+    border-top:thick double rgb(66, 64, 64);
+    border-bottom:thick double rgb(66, 64, 64);
+}
+.information h4{
+    text-align: center;
+    font-family: style Script, cursive;
+}
+.information{
+    background-color: rgba(226, 223, 223, 0.623);
+}
+.textinfo{
+    border-top: 2px solid black;
+}
+.menu_tarif{
+    border-top: 2px solid black;
+}
+.titlereserver h3{
+    color: black;
+}
+.condition{
+    text-align: justify;
+}
+.titlereserver{
+    border-bottom: 2px solid black;
+}
+
+/************Modifier restaurant*******************/
+.modifierrestaurant .container h3{
+    text-align: center;
+    font-family: 'Style Script', cursive;  
+}
+.buttonsave{
+    display: flex;
+    justify-content: center;
+    padding: 18px;
+}
+.selection h5{
+    text-align: center;
+    margin-bottom: 2vw;
+    font-family: 'Times New Roman', Times, serif;
+ 
+}

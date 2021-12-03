@@ -1,0 +1,95 @@
+.backgroundmenu{
+    background-image: url('/assets/images/menu/pexels-cottonbro-3298180.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 450px;
+}
+.backgroundmenu1{
+    background-image: url('/assets/images/menu/pexels-cottonbro-3338537.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-size: cover;
+    
+    height: 450px;
+}
+.titlemenu{
+    text-align: center;
+    font-family: style Script, cursive;
+}
+.listmenu{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    color: #CCB356;
+    font-weight: 700;
+    font-family:'Times New Roman', Times, serif;
+    font-size: medium;
+}
+#listmenucarte{
+    font-family: 'Times New Roman', Times, serif;
+}
+#detailmenu{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    background-image: url('/assets/images/menu/pngwing.com (30).png');
+    background-size: cover;
+    background-position: center;
+}
+.detailtitre{
+    font-size: x-large;
+    font-family: style Script, cursive;
+}
+.detailprix{
+    color: black;
+    font-size: large;
+    font-family: style Script, cursive;
+}
+.nosmenu{
+    text-align: center;
+    font-family: style Script, cursive;
+}
+.lignemenu{
+    width: 200px;
+}
+.backgroundmenuor img{
+    width: 10vw;
+}
+.backgroundmenuor{
+   
+    display: flex;
+    justify-content: center;
+    padding: 5vw;
+}
+.backgroundmenulist{
+    background-image: url('/assets/images/menu/pexels-alem-sánchez-612790 (1).jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: grayscale(100%);
+    height: 300px;
+}
+.backgroundmenulist1{
+    background-image: url("/assets/images/menu/pexels-maria-orlova-4947207.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    height: 300px;
+}
+#renseingments{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.renseignement{
+    padding: 20px;
+}
+.mapsloc{
+    font-size: medium;
+    color: gray;
+    font-family: 'Times New Roman', Times, serif;
+}

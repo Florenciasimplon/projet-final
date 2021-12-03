@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Menu{% endblock %}
+
+{% block body %}
+    <div class="menu">
+        <div class="row">
+            <div class="col s6 offset s6  backgroundmenu"></div>
+            <div class="col s6 offset s6  backgroundmenu1"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="titlemenu">
+            <h3>Créer mon menu</h3>
+        </div>
+        <div class="menu">
+        </div>
+    {{ include('menu/_form.html.twig') }}
+    </div>
+
+
+    <a href="{{ path('menu_index', {'id': restaurant.id}) }}" class="listmenu">Retour à la liste des menus</a>
+{% endblock %}

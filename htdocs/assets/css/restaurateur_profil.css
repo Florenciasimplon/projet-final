@@ -1,0 +1,33 @@
+.backgroundimg12{
+    background-image: url('/assets/images/profil_restaurateur/pexels-aditya-moses-2632292.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+}
+.backgroundimg13{
+    background-image: url("/assets/images/profil_restaurateur/pexels-dibakar-roy-4064951.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    height: 300px;
+}
+.backgroundimg14{
+    background-image: url('/assets/images/profil_restaurateur/pexels-pixabay-39069.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+}
+.titlerestaurateur h3{
+    text-align: center;
+    font-family: style Script, cursive;
+}
+.introduction{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+.introduction span{
+    font-weight:300;
+}

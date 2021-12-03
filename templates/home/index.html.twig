@@ -1,0 +1,153 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+  <!--CAROUSEL-->
+  <div class="carouselhome">
+    <div class="">
+      <video class="clip" autoplay loop width="100%">
+        <source src="assets/video/pexels-ron-lach-8922359.mp4" type="video/webm">
+      </video>
+
+    </div>
+  </div>
+  <!--FIN CAROUSEL-->
+  <!----HOmepage diner-->
+  <div class="triangle1">
+
+    <div class="intro">
+      <h3>HouseDîner<br></h3>
+      <p>Reservez votre table en quelques clique <br /> dans l'un de nos restaurant Gastronomique</p>
+    </div>
+
+  </div>
+  <br>
+  <br>
+  <!--FIN HOmepage diner-->
+  <!-- Catégorie restaurant -->
+  <div class="Categorie" id="list">
+    <div class="row">
+      <div class="col s12 m7 type">
+        <h3>Types de Restaurant</h3>
+
+        <p> "La gastronomie est l'art d'utiliser la nourriture pour créer du bonheur."</p>
+      </div>
+
+      <div class="col s12 m5 typeimgs">
+        <img src="assets/images/logo/pngwing.com (12).png">
+      </div>
+    </div>
+    <br>
+
+    <!--- DIV restaurant -->
+    <div class="gold">
+   
+    {% set count = 0 %}
+        {% for restaurant in restaurants %}
+            {% if count % 2 %}
+              <div class="row reverse"id="texttroisgros">
+            {% else %}
+              <div class="row"id="picturetroisgros">
+            {% endif %}
+              <div class="col s12 m5" id="decohome" >
+                  <h4>{{restaurant.nomRestaurant}} </h4>
+                  <p>{{restaurant.description}}</p>
+                  <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">
+                    <button class="btn waves-effect" type="submit" name="action"
+                      style="    background-color: rgba(0, 0, 0, 0.877);" id="buttondecouvrire">Découvrir
+                      <i class="material-icons right" id="fleche">room_service</i>
+                    </button>
+                  </a> 
+              </div>
+              <div class="col s12 m7" >
+                {# <div class="carousel carousel-slider">
+                </div> #}
+                <div class="carousel carousel-slider center" style="height:345px">
+                  {% for pictureRestaurants in restaurant.pictureRestaurant %}
+                  <a class="carousel-item" href="#one!"style="height:345px">
+                    <img style="height:345px" src={{asset("/uploads/picture_restaurant/" ~ pictureRestaurants)}}>
+                  </a>  
+                  {% endfor %}
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var elems = document.querySelectorAll('.carousel');
+                      console.log(elems)
+                      elems.forEach((elem)=>{
+                        console.log(elem)
+                        var instances = M.Carousel.init(elem, { fullWidth: true});
+                      })
+                    });
+                </script>
+              </div> 
+          </div> 
+          {% set count = count +1 %}
+        {% endfor %}
+     
+    </div>
+    </div>
+  </div>
+    <hr>
+  <!---Temoignage-->
+  <div class="temoignages">
+    <div class="texttemoignages">
+      <h3>Témoignages</h3>
+    </div>
+    <div class="container">
+      <div class="row">
+   {% for temoignage in temoignage %}
+   
+   
+        <div class="col sm12 m4">
+          <div class="temoignagneuser">
+            <div class="card-image">
+              <img src={{asset("uploads/picture_profil/" ~ temoignage.user.picture)}}>
+            </div>
+            <div class="name">
+            {{temoignage.user.nom}}
+            {{temoignage.user.prenom}}
+
+            </div>
+
+           <a href="{{ path('restaurant_show', {'id': temoignage.restaurant.id}) }}" class="lienrestaucom"><p class="comrestau">Restaurant {{temoignage.restaurant.nomRestaurant}}</a>
+             </p>
+            <div class="card-content">
+              <p>
+                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                 {{temoignage.commentaire}}
+              </p>
+            </div>
+            <div class="note">⭐️⭐️⭐️⭐️⭐️</div>
+            <div class="com">
+            <p>Publié le {{ temoignage.date|date("d M Y") }}
+          </p>
+            </div>
+          </div>
+        </div>
+  {% endfor %}
+      </div>
+    </div>
+  </div>
+    <!-- FIN Temoignage- -->
+    <!-- INSCRIPTION -->
+    <div class="inscriptionpub">
+      <div class="container">
+        <div class="row pubdiner ">
+          <div class="col s12 m6">
+            <video loop autoplay width="100%" height="600">
+
+              <source src="assets/video/À votre Assiette.mp4" type="video/webm">
+            </video>
+          </div>
+          <div class="col s12 m6 textpub" style="padding: 10px;">
+           <h5>Devenez Membre</h5>
+           <a  href ="/inscription.html" target="_blank" class="waves-effect btn-floating pulse"  style="background-color:#d0c07a;"><i class="material-icons right">star_border</i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--- FIN INSCRIPTION -->
+
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{{ form_start(form) }}
+<div class="container">
+    <div class="row">
+        <div class="menu">
+            <div class="col s12 m12">
+                {{form_label(form.nom_menu)}}
+                {{form_widget(form.nom_menu)}}
+            </div>
+            <div class="col s6 m6">
+                {{form_label(form.entrer)}}
+                {{form_widget(form.entrer)}}
+            </div>
+            <div class="col s6 m6">
+                {{form_label(form.entrer_2)}}
+                {{form_widget(form.entrer_2)}}
+            </div>
+            <div class="col s6 m6">
+                {{form_label(form.plats)}}
+                {{form_widget(form.plats)}}
+            </div>
+              <div class="col s6 m6">
+                {{form_label(form.plats_2)}}
+                {{form_widget(form.plats_2)}}
+            </div>
+            <div class="col s6 m6">
+                {{form_label(form.dessert)}}
+                {{form_widget(form.dessert)}}
+            </div>
+             <div class="col s6 m6">
+                {{form_label(form.Dessert_2)}}
+                {{form_widget(form.Dessert_2)}}
+            </div>
+            <div class="col s12 m12">
+                {{form_label(form.prix)}}
+                {{form_widget(form.prix)}}
+            </div>
+         </div>
+    </div>
+</div>
+<div class="buttonsave">
+     <button class="btn waves-effect btn-small center" style="background-color: rgba(0, 0, 0, 0.863) ; width: 300px; " type="submit" name="action">
+        <i class="material-icons right">check</i>{{ button_label|default('Enregistrer') }}
+     </button>
+    </div>
+    {# <button class="btn">{{ button_label|default('Save') }}</button> #}
+{{ form_end(form) }}

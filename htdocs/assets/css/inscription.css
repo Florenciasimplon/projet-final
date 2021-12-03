@@ -1,0 +1,45 @@
+.backgroundimg{
+    background-image: url("/assets/images/inscription/pexels-min-an-724091.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+}
+.backgroundimg1{
+    background-image: url('/assets/images/inscription/pexels-valeria-boltneva-7474372.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+}
+.backgroundimg2{
+    background-image: url('/assets/images/inscription/kitchen-731351_640.jpg');
+     background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale(100%);
+    height: 300px;
+}
+/**********FORMULAIRE*************/
+.titleinscription{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    
+}
+.form{
+    font-family: 'Times New Roman', Times, serif;
+}
+label.active{
+    background-color: transparent;
+    color: black;
+}
+.input-field .prefix.active{
+    background-color: transparent;
+}
+.formulaire{
+    text-align: center;
+    border-top: 1px solid black;
+}
+
+
+/**********FIN FORMULAIRE*************/

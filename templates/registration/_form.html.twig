@@ -1,0 +1,87 @@
+{{ form_start(registrationForm) }}
+                <div class="row">
+                    <div class="col s12">
+                      <p>
+                        <label>
+                          <span>Civilité</span>
+                         {{ form_widget(registrationForm.gender) }}
+                        </label>
+                      </p>
+                    </div>
+                    <div class="col s12 m6">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <i class="material-icons prefix"style="color: #d0c07a;">account_circle</i>
+                         {{ form_widget(registrationForm.nom) }}
+                         {{ form_label(registrationForm.nom) }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <i class="material-icons prefix"style="color: #d0c07a;">account_circle</i>
+                          {{ form_widget(registrationForm.prenom) }}
+                         {{ form_label(registrationForm.prenom) }}
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="row">
+                          <div class="input-field col s12">
+                                <i class="material-icons prefix"style="color: #d0c07a;">cake</i>
+                               {{ form_widget(registrationForm.date_anniversaire) }}
+                               {{ form_label(registrationForm.date_anniversaire) }}
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <i class="material-icons prefix"style="color: #d0c07a;">location_on</i>
+                            {{ form_widget(registrationForm.adresse) }}
+                            {{ form_label(registrationForm.adresse) }}
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <i class="material-icons prefix"style="color: #d0c07a;">location_city</i>
+                            {{ form_widget(registrationForm.code_postal) }}
+                            {{ form_label(registrationForm.code_postal) }}
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <i class="material-icons prefix"style="color: #d0c07a;">local_phone</i>
+                            {{ form_widget(registrationForm.telephone) }}
+                            {{ form_label(registrationForm.telephone) }}
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <i class="material-icons prefix"style="color: #d0c07a;">email</i>
+                           {{ form_widget(registrationForm.email) }}
+                            {{ form_label(registrationForm.email) }}
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col s12 m6">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix"style="color: #d0c07a;">lock</i>
+                                    {{ form_widget(registrationForm.plainPassword) }}
+                                    {{ form_label(registrationForm.plainPassword) }}
+                            </div>
+                 </div>
+                <button class="btn waves-effect btn-small" style="background-color: rgba(0, 0, 0, 0.863) ; width: 300px; " type="submit" name="action">
+                  <i class="material-icons right">check</i>{{ button_label|default('Sauvegarder') }}
+                </button>
+            </div>
+    
+{{ form_end(registrationForm) }}

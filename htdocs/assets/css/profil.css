@@ -1,0 +1,108 @@
+.backgroundimg6{
+    background-image: url('/assets/images/profil/pexels-skylar-kang-6368947.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+}
+.backgroundimg7{
+    background-image: url("/assets/images/profil/pexels-lachlan-ross-7084309.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    height: 300px;
+}
+.backgroundimg8{
+    background-image: url('/assets/images/profil/pexels-jess-bailey-designs-745760.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+}
+.titleprofil{
+    text-align: center;
+    font-family: style Script, cursive;
+}
+.nameuser{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+li.active{
+    background-color: white;
+}
+.profileimg{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px;
+    object-fit: cover;
+    object-position: center right;
+    background-color: rgb(189, 189, 189);
+}
+.styleimg{
+    display: flex;
+    justify-content: center;
+}
+.profilcompte{
+    padding: 10px;
+}
+.peinture{
+    display: flex;
+    justify-content: center;
+}
+.modififer h4{
+    text-align: center;
+    font-family: style Script, cursive;
+    padding-bottom: 5px;
+    text-decoration: underline;
+}
+#alertemodif{
+    background-color: rgb(112 119 110);
+    width: 45%;
+    text-align: center;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-duration: 5s;
+    animation-name: modifvalid;
+    color: white;
+    opacity: 0;
+}
+.messagemodif{
+    display: flex;
+    justify-content: center;
+
+}
+@keyframes modifvalid{
+    from{
+        margin-left: 100%;
+        opacity: 1;
+    }
+    to {
+        margin-left: 0%;
+        opacity: 1;
+        
+    }
+}
+a.lienmodif{
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: unset;
+}
+#myrestaurant{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+   
+}
+
+.lienmodif{
+    padding: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+.lienmodif:hover{
+    color: #a68a64;
+}
