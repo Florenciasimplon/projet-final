@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-
+  
   <!--CAROUSEL-->
-  <div class="carouselhome">
+  {# <div class="carouselhome">
     <div class="">
       <video class="clip" autoplay loop width="100%">
         <source src="assets/video/pexels-ron-lach-8922359.mp4" type="video/webm">
@@ -14,42 +14,60 @@
   <!----HOmepage diner-->
   <div class="triangle1">
 
-    <div class="intro">
+  <img src="/assets/images/homepage/ob_64275d_gastronomie-conseils-menu-cover.jpg">
+    {#  #}
+
+  {# </div>  #}
+<div class="homepageparalax"style="background-color:#ccc5b9;">
+    <section class="image" >
+      <video class="clip" autoplay loop width="100%">
+            <source src="assets/video/pexels-ron-lach-8922359.mp4" type="video/webm">
+      </video>
+      
+    </section>
+  <section class="text" id="househome">
+       <div class="intro">
       <h3>HouseDîner<br></h3>
-      <p>Reservez votre table en quelques clique <br /> dans l'un de nos restaurant Gastronomique</p>
+      <p>Reservez votre table en quelques clique <br>Pour un plaisir groumand ..</p>
     </div>
-
-  </div>
-  <br>
-  <br>
-  <!--FIN HOmepage diner-->
-  <!-- Catégorie restaurant -->
-  <div class="Categorie" id="list">
-    <div class="row">
-      <div class="col s12 m7 type">
-        <h3>Types de Restaurant</h3>
-
-        <p> "La gastronomie est l'art d'utiliser la nourriture pour créer du bonheur."</p>
+  </section>
+  <section class="image2"style="background-image: url(/assets/images/homepage/restaurant-g6432e2051_1920.jpg)">
+    <section class="heading1">
+         <p class="anotation"> "La gastronomie est l'art d'utiliser la nourriture pour créer du bonheur."</p>
+      </section>
+  </section>
+  <section class="text" style="background-color:#ccc5b9;">
+   <div class="row"id="rowgastro">
+  
+      <div class="col s12 xl6"id ="cuisinegastroimg">
+        <img src="/assets/images/homepage/ob_64275d_gastronomie-conseils-menu-cover.jpg">
       </div>
-
-      <div class="col s12 m5 typeimgs">
-        <img src="assets/images/logo/pngwing.com (12).png">
+      <div class="col s12 xl6" id="animationgastro">
+        <p class="quisommenous">Qui somme nous ?</p>
+        <p class="introductiongastro"><span class="housegastro">HousseDîner</span> vous guide dans votre recherche pour un plaisir gourmand..<br>
+          Vous allez découvrire notre liste de restaurants gastronimique de la régions Roannaise et ses alentours.<br>
+          Devenez membre et reservez votre table en quelques clique.<br>
+          <div class="btnpuls">
+           <a  href ="{{path('app_register')}}" " target="_blank" class="waves-effect btn pulse"  style="background-color:#403d39;">Devenir membre</a>
+          </div>
+        </p>
       </div>
-    </div>
-    <br>
+    </div>  
+  </section> 
 
-    <!--- DIV restaurant -->
-    <div class="gold">
+ 
+  <section class="image3" style="background-image: url(/assets/images/homepage/pexels-cleyder-duque-6401024.jpg)">
+  <section class="heading">
+    <p class="nosrestaurantheading">Nos Restaurants</p>
+    </section>
+  </section>
    
-    {% set count = 0 %}
+    <section class="text" style="--bg: #252422">
+        <div class="gold" >
         {% for restaurant in restaurants %}
-            {% if count % 2 %}
-              <div class="row reverse"id="texttroisgros">
-            {% else %}
-              <div class="row"id="picturetroisgros">
-            {% endif %}
-              <div class="col s12 m5" id="decohome" >
-                  <h4>{{restaurant.nomRestaurant}} </h4>
+              <div class="row" id="carouselresponsive">
+              <div class="col s12 l4" id="decohome" >
+                  <h4 class="nomrestaurants">{{restaurant.nomRestaurant}} </h4>
                   <p>{{restaurant.description}}</p>
                   <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">
                     <button class="btn waves-effect" type="submit" name="action"
@@ -58,13 +76,12 @@
                     </button>
                   </a> 
               </div>
-              <div class="col s12 m7" >
-                {# <div class="carousel carousel-slider">
-                </div> #}
-                <div class="carousel carousel-slider center" style="height:345px">
+              <div class="col s12 l6" id="imagescarouselrestaurants">
+             
+               <div class="carousel carousel-slider center" >
                   {% for pictureRestaurants in restaurant.pictureRestaurant %}
-                  <a class="carousel-item" href="#one!"style="height:345px">
-                    <img style="height:345px" src={{asset("/uploads/picture_restaurant/" ~ pictureRestaurants)}}>
+                  <a class="carousel-item" href="#one!">
+                    <img style="max-height:345px" src={{asset("/uploads/picture_restaurant/" ~ pictureRestaurants)}}>
                   </a>  
                   {% endfor %}
                 </div>
@@ -74,79 +91,66 @@
                       console.log(elems)
                       elems.forEach((elem)=>{
                         console.log(elem)
-                        var instances = M.Carousel.init(elem, { fullWidth: true});
+                        var instances = M.Carousel.init(elem, { 
+                          fullWidth: true,
+                           duration: 200
+                        });
                       })
                     });
                 </script>
               </div> 
           </div> 
-          {% set count = count +1 %}
+        
         {% endfor %}
-     
     </div>
-    </div>
-  </div>
-    <hr>
-  <!---Temoignage-->
-  <div class="temoignages">
-    <div class="texttemoignages">
-      <h3>Témoignages</h3>
-    </div>
-    <div class="container">
-      <div class="row">
+    </section>
+    <section class="image3" style="background-image: url(/assets/images/homepage/pexels-photo-853151.jpeg)">
+      <section class="heading">
+        <p class="nosrestaurantheading">Temoignages Clients</p>
+      </section>   
+    </section>
+      <section class="text" style="--bg: #efe5dc; padding:20px ">
+    
+         <div class="row">
    {% for temoignage in temoignage %}
-   
-   
-        <div class="col sm12 m4">
+        <div class="col s12  l4">
           <div class="temoignagneuser">
             <div class="card-image">
               <img src={{asset("uploads/picture_profil/" ~ temoignage.user.picture)}}>
             </div>
             <div class="name">
-            {{temoignage.user.nom}}
-            {{temoignage.user.prenom}}
-
+              {{temoignage.user.prenom}}
+              {{temoignage.user.nom}}
             </div>
-
-           <a href="{{ path('restaurant_show', {'id': temoignage.restaurant.id}) }}" class="lienrestaucom"><p class="comrestau">Restaurant {{temoignage.restaurant.nomRestaurant}}</a>
-             </p>
-            <div class="card-content">
-              <p>
-                <i class="fa fa-quote-left" aria-hidden="true"></i>
-                 {{temoignage.commentaire}}
-              </p>
+            <a href="{{ path('restaurant_show', {'id': temoignage.restaurant.id}) }}" class="lienrestaucom">
+            <p class="comrestau">Restaurant {{temoignage.restaurant.nomRestaurant}}</p></a>
+             <div class="card-content">
+              <p><i class="fa fa-quote-left" aria-hidden="true"></i> {{temoignage.commentaire}}</p>
             </div>
-            <div class="note">⭐️⭐️⭐️⭐️⭐️</div>
+            <div class="note">{{temoignage.note}}/5</div>
             <div class="com">
-            <p>Publié le {{ temoignage.date|date("d M Y") }}
-          </p>
+              <p>Publié le {{ temoignage.date|date("d M Y") }} </p>
             </div>
           </div>
         </div>
   {% endfor %}
       </div>
-    </div>
-  </div>
-    <!-- FIN Temoignage- -->
-    <!-- INSCRIPTION -->
-    <div class="inscriptionpub">
-      <div class="container">
-        <div class="row pubdiner ">
-          <div class="col s12 m6">
-            <video loop autoplay width="100%" height="600">
-
-              <source src="assets/video/À votre Assiette.mp4" type="video/webm">
-            </video>
+      </section>
+      <section class="image3"style="background-color:#ccc5b9">
+        <video autoplay loop  width="100%" height="80%">
+          <source src="assets/video/À votre Assiette.mp4" type="video/webm">
+        </video> 
+      </section>
+      <section class="text">
+       <div class="textpub" style="padding: 10px;">
+           <h5>Rejoignez-nous !</h5>
+           <a  href ="{{path('app_register')}}" target="_blank" class="waves-effect btn-floating pulse"  style="background-color:#d0c07a;"><i class="material-icons right">star_border</i></a>
           </div>
-          <div class="col s12 m6 textpub" style="padding: 10px;">
-           <h5>Devenez Membre</h5>
-           <a  href ="/inscription.html" target="_blank" class="waves-effect btn-floating pulse"  style="background-color:#d0c07a;"><i class="material-icons right">star_border</i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--- FIN INSCRIPTION -->
-
+      </section>     
+     
+              
+      
+</div>
 {% endblock %}
 {% block javascripts %}
 

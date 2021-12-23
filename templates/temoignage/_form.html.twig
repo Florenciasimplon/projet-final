@@ -1,5 +1,16 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <input type="hidden" name="idRestaurant" id='idRestaurant' value=7>
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="container">
+    <div class="col s-12">
+    {{ form_label(form.commentaire) }}
+    {{ form_widget(form.commentaire) }}
+    </div>
+       <div class="col s-12">
+    {{ form_label(form.note) }}
+    {{ form_widget(form.note) }}
+    </div>
+    <div class="col s12" id="btncom">
+    <button class="btn waves-effect btn-small center" id="btnsave">{{ button_label|default('Envoyer') }}</button>
+    </div>
+
+</div>
 {{ form_end(form) }}

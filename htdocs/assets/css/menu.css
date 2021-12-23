@@ -92,4 +92,25 @@
     font-size: medium;
     color: gray;
     font-family: 'Times New Roman', Times, serif;
+    font-weight:900
+}
+@media (max-width:401px){
+    .mapsloc{
+        font-size: small;
+    }
+    #renseingments{
+        font-size: 13px;
+    }
+}
+
+.retourprofile{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.retourprofile a{
+    color: black;
+}
+.retourprofile a :hover{
+    color: #CCB356;
 }

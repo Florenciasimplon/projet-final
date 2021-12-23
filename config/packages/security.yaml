@@ -37,4 +37,4 @@ security:
     access_control:
     #  - { path: ^/, roles: ROLE_USER }
      - { path: ^/admin, roles: ROLE_ADMIN }
-     - { path: ^/restaurateur, roles: ROLE_RESTAURATEUR }
+    #  - { path: ^/restaurateur, roles: ROLE_RESTAURATEUR }

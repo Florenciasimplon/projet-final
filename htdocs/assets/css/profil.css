@@ -106,3 +106,47 @@ a.lienmodif{
 .lienmodif:hover{
     color: #a68a64;
 }
+#datetemoignageuser{
+    text-align: center;
+    color: gray;
+    font-family: 'Times New Roman', Times, serif;
+}
+#comtemoignageuser{
+    font-family: 'Times New Roman', Times, serif;
+}
+.Nomrestaurantuser{
+font-family: 'Times New Roman', Times, serif;
+text-align: center;
+margin: 1vw;
+}
+.Noterestaurantuser{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-bottom: 1vw;
+}
+.idusercom{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin: 1vw;
+}
+.identité{
+    font-family: 'Times New Roman', Times, serif;
+    color: gray;
+}
+.profilcomuser{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center right;
+    background-color: rgb(189, 189, 189);
+}
+
+/**********************************************/
+/* Default use:
+  @include min-(width,4,240);
+
+  use width calculation
+  @include min-(width,4,240,'calc(100% - 240px)');
+*/
+

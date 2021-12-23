@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Restaurant;
 use App\Entity\Temoignage;
 use App\Entity\User;
 use App\Form\TemoignageType;
 use App\Repository\RestaurantRepository;
 use App\Repository\TemoignageRepository;
 use DateTime;
+use Proxies\__CG__\App\Entity\User as EntityUser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,29 +24,26 @@ class TemoignageController extends AbstractController
     /**
      * @Route("/", name="temoignage_index", methods={"GET"})
      */
-    public function index(TemoignageRepository $temoignageRepository): Response
+    public function index(TemoignageRepository $temoignageRepository ): Response
     {
         return $this->render('temoignage/index.html.twig', [
-            'temoignages' => $temoignageRepository->findAll(),
-        ]);
+            'temoignages' => $temoignageRepository->findAll() ]);
+           
     }
 
     /**
-     * @Route("/new", name="temoignage_new", methods={"GET","POST"})
+     * @Route("/new/{id}", name="temoignage_new", methods={"GET","POST"})
      */
-    public function new(Request $request, RestaurantRepository $restaurantRepository): Response
+    public function new(Request $request, RestaurantRepository $restaurantRepository, Restaurant $restaurant): Response
     {
         $temoignages = new Temoignage();
         $form = $this->createForm(TemoignageType::class, $temoignages);
         $form->handleRequest($request);
-        $idRestaurant = $request->get('idRestaurant');
-        $restaurant = $restaurantRepository->findOneBy(["id" => $idRestaurant]);
-
+        // dd($restaurants);
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $temoignages->setUser($this->getUser());
             $temoignages->setRestaurant($restaurant);
-            
             $date = new DateTime();
             $temoignages->setDate($date);
             $entityManager->persist($temoignages);

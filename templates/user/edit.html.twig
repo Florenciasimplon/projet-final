@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfilController!{% endblock %}
+{% block title %}Mon Profil{% endblock %}
 
 {% block body %}
 <style>
@@ -68,8 +68,42 @@
                 <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
             </li>
             <li>
+            
                 <div class="collapsible-header"><i class="material-icons"style="color: #70776E;">comment</i>Mes Commentaires</div>
-                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    {% if not is_granted('ROLE_RESTAURATEUR') == false %}
+                        {% for temoignage in temoignages %}
+                            <div class="collapsible-body">
+                                <div class="row">
+                                <div class="idusercom">De {{temoignage.user.nom}} {{temoignage.user.prenom}}</div>
+                                <div class="Noterestaurantuser">Note {{temoignage.note}}</div>
+                                    <div class="col s12 m9"id="comtemoignageuser">
+                                   {{temoignage.commentaire}}
+                                    </div>
+                                    <div class="col s12 m3" id="datetemoignageuser">
+                                        Le {{temoignage.date | date("d M Y") }}
+                                    </div>
+                                </div>
+                            </div>
+                    
+                        {% endfor %}
+                    {% else %}
+                        {% for temoignageUser in temoignageUser %}
+                    
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="Nomrestaurantuser">Restaurant {{temoignageUser.restaurant.nomRestaurant}}</div>
+                                <div class="Noterestaurantuser">Votre note {{temoignageUser.note}}</div>
+                                <div class="col s12 m9"id="comtemoignageuser">
+                                    <span>{{temoignageUser.commentaire}}</span>
+                                </div>
+                                <div class="col s12 m3" id="datetemoignageuser">
+                                    Le {{temoignageUser.date | date("d M Y") }}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                
             </li>
             {% if not is_granted('ROLE_RESTAURATEUR') == false %}
                    <li>
@@ -90,7 +124,7 @@
                     </div>
                       <div Class="col s12 m12" id="myrestaurant">
                       <i class="material-icons"style="color: #d0c07a;">room_service</i> 
-                      <a href="{{ path('menu_new', {'id': restaurant.id}) }}" class="lienmodif">Visualiser mes menus</a>
+                      <a href="{{ path('menu_index', {'id': restaurant.id}) }}" class="lienmodif">Visualiser mes menus</a>
                     </div>
                  </div>
             </li>

@@ -3,8 +3,19 @@
 #logo{
     font-family: 'Style Script', cursive;
 }
-
-
+nav{
+  font-family: 'Times New Roman', Times, serif;
+}
+.sidenav{
+font-family: 'Times New Roman', Times, serif;
+}
+#nameside{
+  font-size: xx-large;
+}
+#picturesidenav{
+  display: flex;
+  justify-content: center;
+}
 /****FINNAVBAR*****/
 /*******CAROUSELHOME********/
 .carouselhome{
@@ -14,23 +25,7 @@
     background-position: center;
     background-size: 50%;
 }
-/*******Media Carousel***********/
-@media (max-width: 565px) { 
-  .carousel.carousel-slider img{
-      height: 300px;
-  }
-}
-@media (max-width: 780px) { 
-.carousel.carousel-slider {
-    height: auto;
-}
-}
-@media (max-width: 300px) { 
-.carousel.carousel-slider{
-    height: auto;
-}
-}
-/*******FIN Media Carousel***********/   
+ 
  /********INTRO***********/
  .intro{
      text-align: center;
@@ -69,7 +64,150 @@
   /*****FIN MEDIA INTRO*********/
 
 /********FIN INTRO***********/
-/********Carégorie***********/
+/********Paralax***********/
+
+.homepageparalax {
+  max-height: 100vh;
+  overflow: hidden;
+  overflow-y: auto; 
+  perspective: 3px;
+}
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background: black; 
+  border-radius: 10px;
+}
+section {
+  background-size: cover;
+  /* color: white; */
+  background-color: var(--bg, --color-black);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section.image {
+  background-position: center center;
+  transform: translateZ(-1px) scale(1.5);
+  /* Force the background image to fill the whole element. */
+  background-size: cover;
+  /* Keep the image from overlapping sibling elements. */
+  z-index: -1;
+  max-height: 100vh;
+}
+#househome{
+    background-color: rgba(0, 0, 0, 0.555);
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+section.image2 {
+    background-position: center;
+    transform: translateZ(-1px) scale(1.5);
+    z-index: -1;
+    height: 100vh;
+    filter: grayscale(100%); 
+} 
+#cuisinegastroimg{
+    display: flex;
+    justify-content: right;
+}
+#cuisinegastroimg img{
+  height: 700px;
+ 
+  
+}
+.borderstyle{
+    border-right: thick double #283d3b;
+}
+#rowgastro{
+    display: flex;
+   align-items: center;
+}
+.quisommenous{
+    font-family: style Script, cursive;
+    font-size: xx-large;
+    
+}
+.btnpuls{
+    display: flex;
+    justify-content: center;
+}
+.btnpuls a{
+    font-family: 'Times New Roman', Times, serif;
+}
+#animationgastro{
+   background-color: black;
+   color: white;
+   border-radius: 5px;
+}
+#carouselresponsive{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+}
+/*********************MEDIA*************/
+@media (max-width:500px){
+    #cuisinegastroimg img{
+        height: 524px;
+      }
+      #cuisinegastroimg{
+        display: flex;
+        justify-content: center;
+        margin: 2vw;
+    }
+    #rowgastro{
+        display: flow-root;
+    }
+    #imagescarouselrestaurants{
+      padding: 10px;
+    }
+    .clip{
+      margin-top: -21vw;
+    }
+}
+.introductiongastro{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+    font-weight: 500;
+    margin-left: 3%;
+}
+section.image3 {
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-color:rgba(255, 255, 255, 0.568);
+    transform: translateZ(-1px) scale(1.5);
+    z-index: -1;
+    height: 100vh;
+    display: flex;
+}
+section.image2{
+  display: flex;
+}
+.anotation{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: xx-large;
+  color: white;
+  text-align: center;
+}
+.nosrestaurantheading{
+    font-size: 50px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+.heading{
+    background-color: rgba(0, 0, 0, 0.363);
+    width: 100%;
+}
+/********fin Paralax***********/
+
+/********Restaurant***********/
   .Categorie{
     font-family: 'Style Script', cursive;  
     text-align: center;
@@ -95,63 +233,29 @@
     background-position: center;
 
   }
-  /***********3gros**************/
   #buttondecouvrire{
     color: white;
   }
-  
- #picturetroisgros{
-   background-position: center;
-   background-size: cover;
-   height: auto;
- }
- #texttroisgros{
-  
-  padding: 20px;
-  height: auto;
-  margin-bottom: 2vw;
-  opacity:0;
-  top: -30px;
- transition-duration: 2s;
- transition-delay: 0.8s;
- background-color: white;
- height: 348px; 
- }
  #decohome{
+   background-color:white;
   border: thick double #D0C07A;
-  height: 348px;
+  max-height: 392px;
   padding: 20px;
  }
-.active#texttroisgros{
-  top: 0;
-  opacity: 1;
-}
- #texttroisgros p{
-   font-size: 15px;
-   font-family: 'Times New Roman', Times, serif;
-   text-align: justify;
+ #decohome p{
+  font-family: 'Times New Roman', Times, serif;
+
  }
- .troisgros{
-   padding: 6px;
- }
-#picturetroisgros{
-  opacity:0;
-  left: -30px;
-  transition-duration: 2s;
-  background-color: white;
+.nomrestaurants{
+  font-family: style Script, cursive;
 }
-.active#picturetroisgros{
-  left: 0;
-  opacity: 1;
-}
-#picturetroisgros img{
-  height: 348px;
-}
-.active#picturetroisgros{
-  left: 0;
-  opacity: 1;
+.troistemoignages{
+  text-align: center;
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif;
 }
  /***********Media troisgros / Animation*****************/
+ /***********fin restaurant****************/
  @media (max-width: 595px) {
   .type h3 {
     font-size: large;
@@ -166,79 +270,37 @@
   .btn.waves-effect{
     font-size: x-small;
   }
+  .anotation{
+    font-size: x-large;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.479);
+    padding: 10px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  section.image2{
+    padding: 10px;
+  }
+}
+@media (max-width: 598px){
   #picturetroisgros img{
-    height: auto;
+    height: 267px;
   }
-  #texttroisgros{
-    height: auto;
+}
+@media (max-width: 601px) {
+  .type{
+    height:142px ;
   }
-  #picturechamplong img {
-    height: auto;
-  }
-  #textchamplong{
-    height: auto;
-  }
-  #picturerongefer img {
-    height: auto;
-  }
-  #textrongefer{
-    height: auto;
-  }
-  #pictureprince img {
-    height: auto;
-  }
-  #textprince{
-    height: 435px;
+  .pubdiner{
+    display: block;
   }
 
 }
-
+.reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
  /***********FIN Media troisgros*****************/
- /******Carouseltyperestaurant*******/
- .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-
-/********FIN Carégorie***********/
+ 
 /***************TEMOIGNAGE************************/
 .texttemoignages{
   text-align: center;
@@ -298,18 +360,10 @@
 }
 /***************FIN TEMOIGNAGE************************/
 /************Inscriptionpub********************/
-.inscriptionpub{
-  background-color: #21242c;
-}
-.row.pubdiner{
-  margin: 0;
-  display: flex;
-  align-items: center;
-  font-family: 'Times New Roman', Times, serif;
-}
 .textpub{
   text-align: center;
-  color: white;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
   border-top:1px solid white;
   border-bottom: 1px solid white;
   padding: 10px;
@@ -344,16 +398,3 @@
   }
 
  /***********FIN FOOTER****************/
- @media (max-width: 601px) {
-  .type{
-    height:142px ;
-  }
-  .pubdiner{
-    display: block;
-  }
-
-}
-.reverse {
-  display: flex;
-  flex-direction: row-reverse;
-}

@@ -1,11 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Temoignage{% endblock %}
+{% block title %}Témoignages clients{% endblock %}
 
 {% block body %}
-    <h1>Create new Temoignage</h1>
+<div class="cadrecom">
+   <img class="pen" src="/assets/images/temoignage/pexels-photo-7319307.jpeg"/>    
+    {# <p class="titletem">Laisser nous votre avis ..<p/> #}
+    <div class="row" id="temoignagestexte">
+        <div class="col s12  imagetemoignage">
+            <p class="votreavis">Laisser nous votre avis<br>
+           <img class="star" src="/assets/images/pngwing.com (45).png">
+        </div>
+    </div>
 
+</div>
+<div class="formtem">
+    <h5>Donnez votre avis sur ce restaurant</h5>
     {{ include('temoignage/_form.html.twig') }}
+</div>  
+        {# <div class=" col s12 goldart">
+            <img src="/assets/images/pngwing.com (44).png">
+        </div> #}
+  
+  
+  
 
-    <a href="{{ path('temoignage_index') }}">back to list</a>
+
+   
 {% endblock %}

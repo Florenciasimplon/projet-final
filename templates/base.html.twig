@@ -31,11 +31,8 @@
     <!--SI User connecter-->
     <ul id="dropdown1" class="dropdown-content">
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-        <li><a href="{{path('user_edit', { 'id' : app.user.id})}}"style="color:white; background-color:black"><i class="material-icons">assignment_ind</i>Mon Profil</a></li>
-        <li><a href="{{ path('app_logout') }}"style="color:white; background-color:black"><i class="material-icons">phonelink_erase</i>Deconnexion</a></li>
-          {% if not is_granted('ROLE_RESTAURATEUR') == false %}
-            <li><a href="{{path('restaurant_new', { 'id' : app.user.id})}}"style="color:white; background-color:black"><i class="material-icons">add</i>Créer mon restaurant</a></li>
-         {% endif %}
+        <li><a href="{{path('user_edit', { 'id' : app.user.id})}}"style="color:white; background-color:#a5a58d">Mon Profil</a></li>
+        <li><a href="{{ path('app_logout') }}"style="color:white; background-color:#a5a58d">Deconnexion</a></li>
         {% endif %}
           <!--FIN SI User connecter-->
     </ul>
@@ -44,25 +41,63 @@
             <a href="{{path('home')}}" class=" center brand-logo" id="logo">HouseDîner</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-            <li><a href="{{path('app_login')}}"><i class="material-icons">account_circle</i></a></li>
-            <li><a href="/#list"><i class="material-icons">restaurant</i></a></li>
-             {% if app.user %}
-             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">{{ app.user.username }}<i class="material-icons right">arrow_drop_down</i></a></li>
-             {% endif %}        
+            {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') == true %}
+                <li><a href="{{path('app_login')}}">Connexion</a></li>
+                <li><a href="#decohome">Listes de nos restaurants</a></li>
+            {% endif %}
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                
+                <li><a href="/#decohome">Les restaurants</a></li> 
+            {% if not is_granted('ROLE_RESTAURATEUR') == false %}
+                {# {% if restaurant == null %}
+                    <li><a href="{{path('restaurant_new', { 'id' : app.user.id})}}">Créer mon restaurant</a></li>
+                {% endif %} #}
+            {% endif %}
+            {% if app.user %}
+                 <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">{{ app.user.prenom }}.{{ app.user.nom }}<i class="material-icons right">arrow_drop_down</i></a></li>
+            {% endif %}    
+            {% endif %}    
+
              </ul>
         </div>
     </nav>
     <ul class="sidenav" id="mobile-demo">
-    <li><a href="{{path('app_login')}}"><i class="material-icons">account_circle</i>Connexion</a></li>
-    <li><a href="/#list"><i class="material-icons">restaurant</i>Nos Restaurants</a></li>
-      <!--SI User connecter-->
+    <li>
+        <div class="user-view">
+        <div class="background" style="background-color:#a5a58d;">
+        
+        </div>
+         {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') == true %}
+            <li><a href="{{path('app_login')}}"><i class="material-icons">account_circle</i>Connexion</a></li>
+            <li><a href="#decohome"><i class="material-icons">store</i>Nos Restaurants</a></li>
+          {% endif %} 
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        <a href="#user"id="picturesidenav"><img class="circle" src={{asset("/uploads/picture_profil/" ~ app.user.picture)}}></a>
+        <a href="#name"><span class="white-text name"id="nameside">{{ app.user.prenom }}.{{ app.user.nom }}</span></a>
+        <a href="#email"style="text-align:center; font-"><span class="white-text email">{{ app.user.username }}</span></a>
+        {% endif %} 
+        </div>
+    </li>
+     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        <li><a href="{{path('user_edit', { 'id' : app.user.id})}}"><i class="material-icons">assignment_ind</i>Mon profil</a></li>
+        <li><a href="/#decohome"><i class="material-icons">store</i>Les restaurants</a></li>
+        <li><div class="divider"></div></li>
+         {% if not is_granted('ROLE_RESTAURATEUR') == false %}
+        <li><a href="{{path('user_edit', { 'id' : app.user.id})}}"><i class="material-icons">add</i>Créer mon restaurant</a></li>
+      {% endif %}
+        <li><a href="{{ path('app_logout') }}"><i class="material-icons">phonelink_erase</i>Deconnexion</a></li>
+        {# <li><a class="subheader">Subheader</a></li>
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li> #}
+     {% endif %} 
+   
+     {#  <!--SI User connecter-->
      {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
         <li><a href="{{path('user_edit', { 'id' : app.user.id})}}"><i class="material-icons">assignment_ind</i>Mon Profil</a></li>
       {% if not is_granted('ROLE_RESTAURATEUR') == false %}
         <li><a href="{{path('user_edit', { 'id' : app.user.id})}}"><i class="material-icons">add</i>Créer mon restaurant</a></li>
       {% endif %}
         <li><a href="{{ path('app_logout') }}"><i class="material-icons">phonelink_erase</i>Deconnexion</a></li>
-    {% endif %}
+    {% endif %} #}
      <!--FIN SI User connecter-->
     </ul>
 </header>
@@ -93,12 +128,14 @@
             <div class="col s12 m6 contact">
                 <h6>HouseDîner</h6>
                 <hr>
-                <a class="logocontact" href="#list"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> List de nos restaurants</a> 
-                |<a class="logocontact" href="{{path ('app_login')}}"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> Mon compte</a> 
+                  {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <a class="logocontact" href="#decohome"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> List de nos restaurants</a> 
+                |<a class="logocontact" href="{{path ('app_login')}}"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> Connexion</a> 
                 <br>
+                 {% endif %}
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                  <a href="{{path('user_edit', { 'id' : app.user.id})}}"style="color:white"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>  Mon Profil</a>
-                | <a href="{{ path('app_logout') }}"style="color:white; background-color:black"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> Deconnexion</a>
+                |<a href="{{ path('app_logout') }}"style="color:white; background-color:black"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> Deconnexion</a>
                 {% endif %}
             </div>
             <div class="col s12 m12 copyright">

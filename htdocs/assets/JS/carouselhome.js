@@ -1,6 +1,7 @@
 var instance = M.Carousel.init({
     fullWidth: true,
-    indicators: true
+    indicators: true,
+    duration: 200
   });
 // var slideIndex = 1;
 // showSlides(slideIndex);

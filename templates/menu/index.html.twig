@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Menu index{% endblock %}
+{% block title %}Menu{% endblock %}
 
 {% block body %}
  <div class="row">
@@ -8,7 +8,7 @@
     </div>
 </div>
 <div class="container">
-    <h1 class="nosmenu">Nos Menus</h1>
+    <h1 class="nosmenu">Mes Menus</h1>
         {% for menu in menus %}
                 <ul class="collapsible popout">
                 <li>
@@ -43,10 +43,12 @@
                 </li>
                 </ul>
         {% endfor %}
-        
     </div>
     <div Class="backgroundmenuor">
         <img src="/assets/images/menu/pngwing.com (31).png"/>
     </div>
+        <div class="retourprofile">
+            <a href="{{path('user_edit', { 'id' : app.user.id})}}">Retour à mon profil</a>
+        </div>
 {% endblock %}
 

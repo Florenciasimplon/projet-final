@@ -22,9 +22,7 @@
     text-align: center;
     font-family: style Script, cursive;
 }
-.information{
-    background-color: rgba(226, 223, 223, 0.623);
-}
+
 .textinfo{
     border-top: 2px solid black;
 }
@@ -56,4 +54,60 @@
     margin-bottom: 2vw;
     font-family: 'Times New Roman', Times, serif;
  
+}
+.options{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+  
+    color: gray;
+    font-size: medium;
+}
+#apropodenous{
+    text-align: center;
+}
+#imagemodal img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    background-color: rgb(189, 189, 189);
+}
+.modalname{
+    text-align: center;
+    padding-top: 5px;
+    color: #d0c07a;
+    font-weight: bold;
+    font-family: 'Style Script', cursive;
+    font-size: medium;
+}
+.commodal{
+    text-align: left;
+    color: gray;
+    font-size: small;
+    font-family: 'Times New Roman', Times, serif;
+}
+#rowmodal{
+    border-bottom: solid 1px #47584e;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+#ilstemoigne{
+    text-align: center;
+    border-top: 2px solid black;
+}
+.apropotitle{
+    font-family: 'Style Script', cursive;
+}
+#btnmodal{
+    background-color: #232323!important;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 1vw;
+}
+.avisclients a{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    color: #D0C086;
+    font-weight: 900;
 }

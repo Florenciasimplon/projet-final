@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\User1Type;
 use App\Repository\RestaurantRepository;
+use App\Repository\TemoignageRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -64,12 +65,15 @@ class UserController extends AbstractController
     /**
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, User $user, SluggerInterface $slugger, RestaurantRepository $restaurantRepository): Response
+    public function edit(Request $request, User $user, SluggerInterface $slugger, RestaurantRepository $restaurantRepository, TemoignageRepository $temoignageRepository): Response
     {
         $form = $this->createForm(User1Type::class, $user);
         $form->handleRequest($request); 
         $picture = $form->get('picture')->getData();
-
+        $restaurant = $restaurantRepository->findOneBy(['user'=>$this->getUser()]);
+        $temoignages = $temoignageRepository->findBy(['restaurant'=>$restaurant]);
+        $temoignageUser = $temoignageRepository->findBy(['user'=>$this->getUser()]);
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->addFlash('success','vos modification sont sauvegardées');
@@ -86,7 +90,9 @@ class UserController extends AbstractController
         return $this->render('user/edit.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
-            'restaurant'=> $restaurantRepository->findOneBy(['user'=>$this->getUser()])
+            'restaurant'=> $restaurant,
+            'temoignages'=>$temoignages,
+            'temoignageUser'=>$temoignageUser,
             
         ]);
     }

@@ -1,0 +1,59 @@
+.pen{
+   
+    filter: grayscale(90%);
+}
+.cadrecom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 598px){
+    .cadrecom img{
+     width: 55%;
+    }
+    .votreavis{
+        font-size: large;
+    }  
+  }
+  @media (min-width: 598px){
+    .votreavis{
+        font-size: xx-large;
+    }  
+  }
+.votreavis{
+    text-align: center;
+    font-family: 'Style Script', cursive;  
+    color: black;
+}
+textarea{
+    margin: 0px;
+    border-color: rgb(71, 88, 78);
+    border-radius: 9px;
+    height: 100px!important;
+    background-color: white!important;
+}
+#btncom{
+    display: flex;
+    justify-content: center;
+  
+}
+#btnsave{
+    width: 300px;
+    color: black;
+    background: #F4DB8E;
+    border-radius: 4px;
+    margin: 2vw;
+    font-family: 'Times New Roman', Times, serif;
+}
+.titletem{
+    text-align: center;
+    font-family: 'Style Script', cursive;  
+    font-size: x-large;
+}
+.formtem{
+    padding: 10px;
+}
+.formtem h5{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}

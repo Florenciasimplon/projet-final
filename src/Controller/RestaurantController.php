@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Form\RestaurantType;
 use App\Repository\MenuRepository;
 use App\Repository\RestaurantRepository;
+use App\Repository\TemoignageRepository;
 use PhpParser\Node\Stmt\Use_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -69,13 +70,15 @@ class RestaurantController extends AbstractController
     /**
      * @Route("/{id}", name="restaurant_show", methods={"GET"})
      */
-    public function show(Restaurant $restaurant, MenuRepository $menuRepository): Response
+    public function show(Restaurant $restaurant, MenuRepository $menuRepository, TemoignageRepository $temoignageRepository): Response
     {
         $restaurantmenu = $menuRepository -> findBy(['restaurant'=> $restaurant -> getId()]);
-        
+        $temoignages = $temoignageRepository->findBy(['restaurant'=>$restaurant]);
+    
         return $this->render('restaurant/show.html.twig', [
             'restaurant' => $restaurant,
             'menus' => $restaurantmenu,
+            'temoignages' => $temoignages,
         ]);
 
     }
