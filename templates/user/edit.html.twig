@@ -28,6 +28,13 @@
             </div>
         </div>
         {% endfor %}
+{% for message in app.flashes('Delete') %}
+        <div class="deletemodif">
+            <div class="alert alert-success" id="alertedelete">
+                {{ message }}
+            </div>
+        </div>
+        {% endfor %}
 <!---PROFIL---->
 <div class="profilcompte">
     <div class="titleprofil">
@@ -64,13 +71,140 @@
              </div>
             </li>
             <li>
-                <div class="collapsible-header"><i class="material-icons"style="color: #70776E;">restore</i>Mes reservations</div>
-                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            <div class="collapsible-header"><i class="material-icons"style="color: #70776E;">restore</i>Mes réservations</div>
+              {% if is_granted('ROLE_RESTAURATEUR') %}
+                <div class="collapsible-body">
+                
+                     <div class="mareservations">
+                     <div class="row">
+                     {% if reservationlist == false %}
+                           <div class="col s12"style="text-align:center">
+                            <p>Vous n'avez pas de réservation pour le moment </p>
+                        </div>
+                        {% else %}
+                          <div class="col s12"style="text-align:center">
+                            <p>Les réservations </p>
+                        </div>
+                     {% endif %}
+                      
+                      
+                    {% for reservationlist in reservationlist %}
+                            
+                        <div class="col s12 ">
+                            <a class="waves-effect waves-light btn modal-trigger" href="#modal1"id="btnmodal">Réservation pour le {{reservationlist.dateDeReservation | date("d M Y")}}</a> 
+                        <div id="modal1" class="modal modal-fixed-footer">
+                            <div class="modal-content"id="modalereservation">
+                             <h5>Bonjour {{reservationlist.restautant.nomRestaurant}}</h5>
+                                <div class="col s12 " >
+                                    <p>Vous avez reçu une réservations pour le {{reservationlist.dateDeReservation | date("d M Y")}} Pour {{reservationlist.nombrePersonnes}} personnes, la réservation est au nom de {{reservationlist.user.gender}} {{reservationlist.user.nom}} {{reservationlist.user.prenom}} à {{reservationlist.heureReservation | date("H:i")}}</p>
+                                    <p>Nous vous informons que la réservation à bien été prise en compte. Vous avez la possibilité d'annulé la réservation pour tous retard non justifié au delà de 30 minutes . Voici les informations de {{reservationlist.user.gender}} {{reservationlist.user.nom}} </p>
+                                    <hr>
+                                    <p style="text-align:center">Informations de {{reservationlist.user.gender}} {{reservationlist.user.nom}} {{reservationlist.user.prenom}} </p>
+                                    <div class="container">
+                                    <div class="row">
+                                        <div class="col s12">
+                                        <a href="mailto:{{ reservationlist.user.email }}"target="_blank" style="color:black;"><P><span class="mapsloc"><i class="fa fa-envelope" aria-hidden="true" style="color: #70776e;"> </i>  email</span> {{ reservationlist.user.email }}</p></a>
+                                        </div>
+                                        <div class="col s12">
+                                        <p><span class="mapsloc"><i class="fa fa-phone" aria-hidden="true" style="color: #70776e;"> </i> Téléphone </span> 0{{ reservationlist.user.telephone }}</p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="housedinerby">
+                                <p>À très vite HouseDîner</p>
+                                </div>   
+                            </div>        
+                            <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fermer</a>
+                            </div>   
+                        </div>
+                        <div class="col s12 m6">{{ include('reservation/_delete_form.html.twig') }}</div>    
+                    <hr>          
+                    </div>        
+                    {% endfor %} 
+                           
+                                   
+                       
+                    
+                    </div>
+                    </div>
+                </div>     
+
+              {% else %}
+                <div class="collapsible-body">
+                <div class="mareservations">
+                <div class="row">
+                    {% if reservations == false %}
+                           <div class="col s12"style="text-align:center">
+                            <p>Vous n'avez pas encore fait de réservation </p>
+                            <a href="/#decohome"  target="_blank" class="waves-effect btn pulse"  style="background-color:#403d39;" id="lienresto">Découvre vite la liste de nos restaurants</a>
+                        </div>
+                
+                     {% endif %}
+                    {% for reservation in reservations %}
+                    <div class="col s12 ">
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1"id="btnmodal">Réservation pour le {{reservation.dateDeReservation | date("d M Y")}}</a> 
+                        <div class="col s12  m6" id="reservationavis">
+                            <a href="{{ path('temoignage_new', {'id': reservation.restautant.id}) }}">N'oubliez pas de partager votre expérience ! cliquez ici</a>
+                        </div>  
+                        <div id="modal1" class="modal modal-fixed-footer">
+                            <div class="modal-content"id="modalereservation">
+                             <h5>{{reservation.user.gender}} {{reservation.user.nom}} {{reservation.user.prenom}}</h5>
+                                <div class="col s12 " >
+                                <p>Vous avez réservez Le {{ reservation.dateReservation|date("d M Y") }},</p>
+                                <p>Pour {{reservation.nombrePersonnes}} personnes le {{reservation.dateDeReservation | date("d M Y")}} à {{reservation.heureReservation | date("H:i")}} chez 
+                                    <a href="{{ path('restaurant_show', {'id': reservation.restautant.id}) }}">
+                                    <span class="nomrestaurantres"> {{reservation.restautant.nomRestaurant}}</span>
+                                    </a>
+                                </p>
+                                <p>Nous vous informons que votre réservation à bien été prise en compte. Si vous souhaitez annuler votre rendez-vous veuillez prendre contact avec {{reservation.restautant.nomRestaurant}}</p>
+                                <hr>
+                                <p style="text-align:center">Informations du restaurant</p>
+                                <div class="container">
+                                <div class="row">
+                                <div class="col s12">
+                                 <a href="https://www.google.fr/maps" style="color:black;"><P><span class="mapsloc"><i class="fa fa-map-marker" aria-hidden="true" style="color: #70776e;"> </i>  Adresse</span> {{ reservation.restautant.adresseRestaurant }} | {{ reservation.restautant.codepostalRestaurant }}</p></a>
+                               
+                                </div>
+                                <div class="col s12">
+                               <p><span class="mapsloc"><i class="fa fa-phone" aria-hidden="true" style="color: #70776e;"> </i> Nous contacter </span> 0{{ reservation.restautant.telephoneRestaurant }}</p>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                               
+                                 <div class="housedinerby">
+                                 <p>À très vite HouseDîner</p>
+                                 </div>   
+                            </div>
+                            <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fermer</a>
+                            </div>
+                        </div>             
+                    <hr>   
+                    </div>        
+                    
+                    {% endfor %} 
+                
+                    
+                      
+                    </div>
+                    </div>
+                </div>     
+                {% endif %}   
             </li>
+
+                  
+                  
+
+                   
+             
+           
             <li>
             
                 <div class="collapsible-header"><i class="material-icons"style="color: #70776E;">comment</i>Mes Commentaires</div>
-                    {% if not is_granted('ROLE_RESTAURATEUR') == false %}
+                    {% if is_granted('ROLE_RESTAURATEUR') %}
                         {% for temoignage in temoignages %}
                             <div class="collapsible-body">
                                 <div class="row">
@@ -105,13 +239,13 @@
                     {% endif %}
                 
             </li>
-            {% if not is_granted('ROLE_RESTAURATEUR') == false %}
+            {% if is_granted('ROLE_RESTAURATEUR') %}
                    <li>
                 <div class="collapsible-header"><i class="fa fa-home" aria-hidden="true"style="color: #70776E;"></i> Mon restaurant</div>
                 <div class="collapsible-body">
                     <div Class="col s12 m12" id="myrestaurant">
                         <i class="material-icons"style="color: #d0c07a;">store</i> 
-                        <a href={{path("restaurant_show", {id: restaurant.id })}} class="lienmodif"> Visualiser mon restaurant</a>
+                        <a href="{{path("restaurant_show", {id: restaurant.id })}} "class="lienmodif"> Visualiser mon restaurant</a>
                     </div>
                     <div Class="col s12 m12" id="myrestaurant">
                        <i class="material-icons"style="color: #d0c07a;">mode_edit</i> 
@@ -140,5 +274,11 @@
             <img src="/assets/images/profil/pngwing.com (27).png" style="width: 300px;">
         </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+</script>
 {% endblock %}
 

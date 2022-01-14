@@ -73,7 +73,7 @@ class MenuController extends AbstractController
     /**
      * @Route("/{id}/edit", name="menu_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Menu $menu): Response
+    public function edit(Request $request, Menu $menu, Restaurant $restaurant): Response
     {
         $form = $this->createForm(MenuType::class, $menu);
         $form->handleRequest($request);
@@ -81,7 +81,9 @@ class MenuController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('menu_index');
+            return $this->redirectToRoute('menu_index',[
+                'id'=>$restaurant->getId(),
+            ]);
         }
 
         return $this->render('menu/edit.html.twig', [
@@ -95,12 +97,16 @@ class MenuController extends AbstractController
      */
     public function delete(Request $request, Menu $menu): Response
     {
+      
         if ($this->isCsrfTokenValid('delete'.$menu->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($menu);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('menu_index');
+        return $this->redirectToRoute('menu_index',[
+            'id'=>$menu->getRestaurant()->getId()
+        ]);
+       
     }
 }

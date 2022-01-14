@@ -4,9 +4,11 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\User1Type;
+use App\Repository\ReservationRepository;
 use App\Repository\RestaurantRepository;
 use App\Repository\TemoignageRepository;
 use App\Repository\UserRepository;
+use Doctrine\ORM\Query\Expr\OrderBy;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -65,18 +67,21 @@ class UserController extends AbstractController
     /**
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, User $user, SluggerInterface $slugger, RestaurantRepository $restaurantRepository, TemoignageRepository $temoignageRepository): Response
+    public function edit(Request $request, User $user, SluggerInterface $slugger, RestaurantRepository $restaurantRepository, TemoignageRepository $temoignageRepository, ReservationRepository $reservationRepository): Response
     {
         $form = $this->createForm(User1Type::class, $user);
         $form->handleRequest($request); 
         $picture = $form->get('picture')->getData();
         $restaurant = $restaurantRepository->findOneBy(['user'=>$this->getUser()]);
         $temoignages = $temoignageRepository->findBy(['restaurant'=>$restaurant]);
+        $reservations = $reservationRepository->findBy(['user'=>$this->getUser()]);
+        $reservationslist = $reservationRepository->findBy(['restautant'=>$restaurant]);
+       
         $temoignageUser = $temoignageRepository->findBy(['user'=>$this->getUser()]);
         
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->addFlash('success','vos modification sont sauvegardées');
+            $this->addFlash('success','vos modifications sont sauvegardées');
             if ($picture !== null) {
                 $user->setPicture($this->upload($picture, 'picture', $slugger));
             }        
@@ -93,6 +98,8 @@ class UserController extends AbstractController
             'restaurant'=> $restaurant,
             'temoignages'=>$temoignages,
             'temoignageUser'=>$temoignageUser,
+            'reservations'=>$reservations,
+            'reservationlist'=>$reservationslist,
             
         ]);
     }

@@ -67,6 +67,9 @@ class RestaurantType extends AbstractType
                 'label'=>'Parking ',
                 'required' => false,
             ])
+            ->add('place_maximum',TextType::class,[
+                'label' => 'Nombres de places disponible dans votre restaurant'
+            ])
         ;
     }
 

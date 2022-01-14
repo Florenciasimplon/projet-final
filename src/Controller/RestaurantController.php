@@ -6,6 +6,7 @@ use App\Entity\Restaurant;
 use App\Entity\User;
 use App\Form\RestaurantType;
 use App\Repository\MenuRepository;
+use App\Repository\ReservationRepository;
 use App\Repository\RestaurantRepository;
 use App\Repository\TemoignageRepository;
 use PhpParser\Node\Stmt\Use_;
@@ -70,10 +71,11 @@ class RestaurantController extends AbstractController
     /**
      * @Route("/{id}", name="restaurant_show", methods={"GET"})
      */
-    public function show(Restaurant $restaurant, MenuRepository $menuRepository, TemoignageRepository $temoignageRepository): Response
+    public function show(Restaurant $restaurant, MenuRepository $menuRepository, TemoignageRepository $temoignageRepository, ReservationRepository $reservationRepository): Response
     {
         $restaurantmenu = $menuRepository -> findBy(['restaurant'=> $restaurant -> getId()]);
         $temoignages = $temoignageRepository->findBy(['restaurant'=>$restaurant]);
+        
     
         return $this->render('restaurant/show.html.twig', [
             'restaurant' => $restaurant,
@@ -93,11 +95,13 @@ class RestaurantController extends AbstractController
         $pictureRestaurants = $form->get('picture_restaurant')->getData();           
         if ($form->isSubmitted() && $form->isValid()) {
             $this->addFlash('success','vos modification sont sauvegardées');
-            $this->getDoctrine()->getManager()->flush();
+           
             if ($pictureRestaurants !== null) {
-                foreach ($pictureRestaurants as $pictureRestaurant)
+                foreach ($pictureRestaurants as $pictureRestaurant){
                 $restaurant->setPictureRestaurant($this->upload($pictureRestaurant, 'picture_restaurant', $slugger));
-            }   
+                }
+            } 
+            $this->getDoctrine()->getManager()->flush();  
             return $this->redirectToRoute('restaurant_show',[
                 'id'=>$restaurant->getId(),
             ]);

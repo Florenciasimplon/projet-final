@@ -85,6 +85,11 @@ class Restaurant
      */
     private $acces_handicape;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $place_maximum;
+
 
     public function __construct()
     {
@@ -294,6 +299,18 @@ class Restaurant
     public function __toString(): string
     {
         return $this->getId();
+    }
+
+    public function getPlaceMaximum(): ?int
+    {
+        return $this->place_maximum;
+    }
+
+    public function setPlaceMaximum(int $place_maximum): self
+    {
+        $this->place_maximum = $place_maximum;
+
+        return $this;
     }
  
 

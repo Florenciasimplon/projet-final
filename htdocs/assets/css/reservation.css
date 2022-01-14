@@ -1,0 +1,63 @@
+.Reservationtitle{
+    text-align: center;
+    font-family: style Script, cursive;
+}
+.mareservations{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+.nomrestaurantres{
+    color: #ad9d81;
+    font-weight: 900;
+}
+.reservele{
+    color: gray;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+}
+#reservationavis{
+    font-size: large;
+}
+#reservationavis a{
+    color: black;
+}
+#modalereservation h5{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+.housedinerby{
+    text-align: right;
+    font-family: 'Times New Roman', Times, serif;
+}
+#lienresto{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+@media (max-width:500px){
+    .mareservations{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: medium;
+    }
+}
+#alertedelete{
+    background-color: #d00000;
+    width: 45%;
+    text-align: center;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-duration: 5s;
+    animation-name: modifvalid;
+    color: white;
+    opacity: 0;
+}
+.deletemodif{
+    display: flex;
+    justify-content: center;
+
+}
+.formreservation{
+    padding: 10px;
+    text-align: center;
+}

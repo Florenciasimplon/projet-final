@@ -1,59 +1,66 @@
-.pen{
-   
-    filter: grayscale(90%);
+.formulairedecom{
+    margin: 3vw;
 }
-.cadrecom{
+.formulairedecom h5{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+#centerform{
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
 }
-@media (max-width: 598px){
-    .cadrecom img{
-     width: 55%;
-    }
-    .votreavis{
-        font-size: large;
-    }  
-  }
-  @media (min-width: 598px){
-    .votreavis{
-        font-size: xx-large;
-    }  
-  }
-.votreavis{
-    text-align: center;
-    font-family: 'Style Script', cursive;  
-    color: black;
-}
-textarea{
-    margin: 0px;
-    border-color: rgb(71, 88, 78);
-    border-radius: 9px;
-    height: 100px!important;
-    background-color: white!important;
-}
-#btncom{
+.png{
     display: flex;
     justify-content: center;
-  
 }
-#btnsave{
-    width: 300px;
-    color: black;
-    background: #F4DB8E;
-    border-radius: 4px;
-    margin: 2vw;
-    font-family: 'Times New Roman', Times, serif;
+#envoyercom{
+    display: flex;
+    justify-content: center;
 }
-.titletem{
-    text-align: center;
-    font-family: 'Style Script', cursive;  
-    font-size: x-large;
+.png img{
+    width: 250px;
 }
-.formtem{
-    padding: 10px;
+@media (max-width:800px){
+    #mobilform{
+        margin-top: 30vw;
+    }
+}   
+@media (max-width:400px){
+    #mobilform{
+        margin-top: 30vw;
+    }
 }
-.formtem h5{
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+.rate_widget {
+    border:     1px solid #CCC;
+    overflow:   visible;
+    padding:    10px;
+    position:   relative;
+    width:      180px;
+    height:     32px;
+}
+.ratings_stars {
+    background: url('etoile_vide.png') no-repeat;
+    float:      left;
+    height:     28px;
+    padding:    2px;
+    width:      32px;
+}
+.ratings_vote {
+    background: url('etoile_remplie.png') no-repeat;
+}
+.ratings_over {
+    background: url('etoile_actuelle.png') no-repeat;
+}
+.total_votes {
+    background: #eaeaea;
+    top: 58px;
+    left: 0;
+    padding: 5px;
+    position:   absolute;  
+} 
+.movie_choice {
+    font: 10px verdana, sans-serif;
+    margin: 0 auto 40px auto;
+    width: 180px;
 }

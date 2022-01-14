@@ -24,7 +24,7 @@ class Reservation
     private $nombre_personnes;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="time")
      */
     private $heure_reservation;
 
@@ -44,6 +44,11 @@ class Reservation
      * @ORM\JoinColumn(nullable=false)
      */
     private $restautant;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $Datereservation;
 
     public function getId(): ?int
     {
@@ -113,6 +118,18 @@ class Reservation
     public function setRestautant(?Restaurant $restautant): self
     {
         $this->restautant = $restautant;
+
+        return $this;
+    }
+
+    public function getDatereservation(): ?\DateTimeInterface
+    {
+        return $this->Datereservation;
+    }
+
+    public function setDatereservation(?\DateTimeInterface $Datereservation): self
+    {
+        $this->Datereservation = $Datereservation;
 
         return $this;
     }

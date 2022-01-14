@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservation{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col s4 m4 backgroundimg6"></div>
+    <div class="col s4 m4  backgroundimg7"></div>
+    <div class="col s4 m4 backgroundimg8"></div>
+</div>
+    <div class="Reservationtitle">
+    <h4>Reservation</h4>
+    </div>
+    {{ include('reservation/_form.html.twig') }}
+
+    <a href="{{ path('reservation_index') }}">back to list</a>
+{% endblock %}

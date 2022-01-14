@@ -1,23 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
   
-  <!--CAROUSEL-->
-  {# <div class="carouselhome">
-    <div class="">
-      <video class="clip" autoplay loop width="100%">
-        <source src="assets/video/pexels-ron-lach-8922359.mp4" type="video/webm">
-      </video>
 
-    </div>
-  </div>
-  <!--FIN CAROUSEL-->
-  <!----HOmepage diner-->
-  <div class="triangle1">
-
-  <img src="/assets/images/homepage/ob_64275d_gastronomie-conseils-menu-cover.jpg">
-    {#  #}
-
-  {# </div>  #}
 <div class="homepageparalax"style="background-color:#ccc5b9;">
     <section class="image" >
       <video class="clip" autoplay loop width="100%">
@@ -28,7 +12,7 @@
   <section class="text" id="househome">
        <div class="intro">
       <h3>HouseDîner<br></h3>
-      <p>Reservez votre table en quelques clique <br>Pour un plaisir groumand ..</p>
+      <p>Reservez votre table<br>Pour un plaisir gourmand ..</p>
     </div>
   </section>
   <section class="image2"style="background-image: url(/assets/images/homepage/restaurant-g6432e2051_1920.jpg)">
@@ -46,9 +30,9 @@
         <p class="quisommenous">Qui somme nous ?</p>
         <p class="introductiongastro"><span class="housegastro">HousseDîner</span> vous guide dans votre recherche pour un plaisir gourmand..<br>
           Vous allez découvrire notre liste de restaurants gastronimique de la régions Roannaise et ses alentours.<br>
-          Devenez membre et reservez votre table en quelques clique.<br>
+          Devenez membre et reservez votre table.<br>
           <div class="btnpuls">
-           <a  href ="{{path('app_register')}}" " target="_blank" class="waves-effect btn pulse"  style="background-color:#403d39;">Devenir membre</a>
+           <a  href ="{{path('app_register')}}"  target="_blank" class="waves-effect btn pulse"  style="background-color:#403d39;">Devenir membre</a>
           </div>
         </p>
       </div>
@@ -64,9 +48,10 @@
    
     <section class="text" style="--bg: #252422">
         <div class="gold" >
+        <div class="container">
         {% for restaurant in restaurants %}
               <div class="row" id="carouselresponsive">
-              <div class="col s12 l4" id="decohome" >
+              <div class="col s12 xl6" id="decohome" >
                   <h4 class="nomrestaurants">{{restaurant.nomRestaurant}} </h4>
                   <p>{{restaurant.description}}</p>
                   <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">
@@ -76,12 +61,15 @@
                     </button>
                   </a> 
               </div>
-              <div class="col s12 l6" id="imagescarouselrestaurants">
-             
-               <div class="carousel carousel-slider center" >
+              <div class="col s12 xl4" id="imagescarouselrestaurants">
+  
+              
+              </div>
+              <div class="col s12 xl6" id="imagescarouselrestaurants">
+               <div class="carousel carousel-slider center" style="height:345px" >
                   {% for pictureRestaurants in restaurant.pictureRestaurant %}
                   <a class="carousel-item" href="#one!">
-                    <img style="max-height:345px" src={{asset("/uploads/picture_restaurant/" ~ pictureRestaurants)}}>
+                    <img style="height:345px" src={{asset("/uploads/picture_restaurant/" ~ pictureRestaurants)}}>
                   </a>  
                   {% endfor %}
                 </div>
@@ -102,6 +90,7 @@
           </div> 
         
         {% endfor %}
+      </div>
     </div>
     </section>
     <section class="image3" style="background-image: url(/assets/images/homepage/pexels-photo-853151.jpeg)">

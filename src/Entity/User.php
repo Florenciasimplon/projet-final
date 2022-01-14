@@ -256,6 +256,6 @@ class User implements UserInterface
     }
     public function __toString(): string
     {
-        return $this->getPicture();
+        return $this->getPrenom();
     }
 }

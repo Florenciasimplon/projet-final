@@ -205,6 +205,16 @@ section.image2{
     background-color: rgba(0, 0, 0, 0.363);
     width: 100%;
 }
+@media (max-width:800px){
+  #rowgastro{
+    display: flow-root;
+}
+#cuisinegastroimg{
+  display: flex;
+  justify-content: center;
+  margin: 2vw;
+}
+}
 /********fin Paralax***********/
 
 /********Restaurant***********/
