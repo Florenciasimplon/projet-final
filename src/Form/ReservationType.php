@@ -23,6 +23,7 @@ class ReservationType extends AbstractType
             // ])
             ->add('nombre_personnes')
             ->add('date_de_reservation', TypeDateType::class, [
+                'label'=> 'Je réserve pour la date',
                 'widget' => 'single_text',
                 'attr' => ['class' => 'form-control'],
             ])

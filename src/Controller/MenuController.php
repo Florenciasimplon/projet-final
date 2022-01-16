@@ -25,6 +25,7 @@ class MenuController extends AbstractController
     {
         return $this->render('menu/index.html.twig', [
             'menus' => $menuRepository->findBy(['restaurant' => $restaurant->getId()]),
+            
         ]);
     }
 
@@ -36,7 +37,6 @@ class MenuController extends AbstractController
         $menu = new Menu();
         $form = $this->createForm(MenuType::class, $menu);
         $form->handleRequest($request);
-        $restaurant = $restaurantRepository->findOneBy(['user'=>$this->getUser()]);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -73,7 +73,7 @@ class MenuController extends AbstractController
     /**
      * @Route("/{id}/edit", name="menu_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Menu $menu, Restaurant $restaurant): Response
+    public function edit(Request $request, Menu $menu): Response
     {
         $form = $this->createForm(MenuType::class, $menu);
         $form->handleRequest($request);
@@ -82,13 +82,15 @@ class MenuController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('menu_index',[
-                'id'=>$restaurant->getId(),
+                'id'=>$menu->getRestaurant()->getId(),
+                
             ]);
         }
 
         return $this->render('menu/edit.html.twig', [
             'menu' => $menu,
             'form' => $form->createView(),
+            
         ]);
     }
 

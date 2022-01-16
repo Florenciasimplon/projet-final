@@ -74,7 +74,7 @@ class RestaurantController extends AbstractController
     public function show(Restaurant $restaurant, MenuRepository $menuRepository, TemoignageRepository $temoignageRepository, ReservationRepository $reservationRepository): Response
     {
         $restaurantmenu = $menuRepository -> findBy(['restaurant'=> $restaurant -> getId()]);
-        $temoignages = $temoignageRepository->findBy(['restaurant'=>$restaurant]);
+        $temoignages = $temoignageRepository->findBy(['restaurant'=>$restaurant],['date' => 'DESC']);
         
     
         return $this->render('restaurant/show.html.twig', [
@@ -97,10 +97,13 @@ class RestaurantController extends AbstractController
             $this->addFlash('success','vos modification sont sauvegardées');
            
             if ($pictureRestaurants !== null) {
+                $restaurant ->resetPictureRestaurant();
                 foreach ($pictureRestaurants as $pictureRestaurant){
                 $restaurant->setPictureRestaurant($this->upload($pictureRestaurant, 'picture_restaurant', $slugger));
                 }
-            } 
+            
+            }
+           
             $this->getDoctrine()->getManager()->flush();  
             return $this->redirectToRoute('restaurant_show',[
                 'id'=>$restaurant->getId(),

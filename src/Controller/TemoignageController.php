@@ -49,7 +49,8 @@ class TemoignageController extends AbstractController
             $entityManager->persist($temoignages);
             $entityManager->flush();
 
-            return $this->redirectToRoute('temoignage_index');
+            return $this->redirectToRoute('user_edit',[
+                'id'=>$this->getUser()->getId(),]);
         }
 
         return $this->render('temoignage/new.html.twig', [

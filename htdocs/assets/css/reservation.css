@@ -33,12 +33,7 @@
     color: white;
     font-family: 'Times New Roman', Times, serif;
 }
-@media (max-width:500px){
-    .mareservations{
-        font-family: 'Times New Roman', Times, serif;
-        font-size: medium;
-    }
-}
+
 #alertedelete{
     background-color: #d00000;
     width: 45%;
@@ -60,4 +55,25 @@
 .formreservation{
     padding: 10px;
     text-align: center;
+}
+.condition{
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+}
+.condition h4{
+    text-align: center;
+    font-family: style Script, cursive;
+}
+.condition p{
+    font-size: x-large;
+}
+@media (max-width:500px){
+    .mareservations{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: medium;
+    }
+    .condition p{
+        font-size: medium;
+    }
 }

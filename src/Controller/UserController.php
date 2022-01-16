@@ -73,11 +73,11 @@ class UserController extends AbstractController
         $form->handleRequest($request); 
         $picture = $form->get('picture')->getData();
         $restaurant = $restaurantRepository->findOneBy(['user'=>$this->getUser()]);
-        $temoignages = $temoignageRepository->findBy(['restaurant'=>$restaurant]);
-        $reservations = $reservationRepository->findBy(['user'=>$this->getUser()]);
-        $reservationslist = $reservationRepository->findBy(['restautant'=>$restaurant]);
+        $temoignages = $temoignageRepository->findBy(['restaurant'=>$restaurant], ['date' => 'DESC']);
+        $reservationslist = $reservationRepository->findBy(['restautant'=>$restaurant],['date_de_reservation' => 'asc']);
+        $reservations = $reservationRepository->findBy(['user'=>$this->getUser()],['date_de_reservation' => 'asc']);
        
-        $temoignageUser = $temoignageRepository->findBy(['user'=>$this->getUser()]);
+        $temoignageUser = $temoignageRepository->findBy(['user'=>$this->getUser()],['date' => 'DESC']);
         
 
         if ($form->isSubmitted() && $form->isValid()) {

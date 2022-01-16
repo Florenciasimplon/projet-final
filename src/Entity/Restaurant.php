@@ -271,6 +271,9 @@ class Restaurant
 
         return $this;
     }
+    public function resetPictureRestaurant(){
+        $this->picture_restaurant=[];
+    }
 
     public function getCodepostalRestaurant(): ?int
     {
