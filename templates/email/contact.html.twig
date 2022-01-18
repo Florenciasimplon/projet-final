@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+  {{ form_start(form) }}
+<div class="contacpage">
+<p>Contactez-nous</p>
+<p class="intro">Vous êtes restaurateur et vous souhaitez faire partie de la liste HouseDîner ?</p>
+<p class="intro">Ecrivez-nous ! afin de mettre en place votre restaurant ! </p>
+</div>
+<div class="container" >           
+ <div class="row"id="rowcentercontact">
+ <div class="col s12 m6">
+ <img src="/assets/images/contact/pexels-ekrulila-8167319 (1).jpg" class="contactphoto" />
+ </div>
+ <div class="col s12 m6">
+      <div class="">
+        <div class="input-field col s12 m6">
+          {{ form_row(form.nom, {"attr": {'class': ''}}) }}
+        </div>
+        <div class="input-field col s12 m6">
+         {{ form_row(form.prenom, {"attr": {'class': ''}}) }}
+        </div>
+      </div>
+      <div class="">
+        <div class="input-field col s12 m6">
+          {{ form_row(form.email, {"attr": {'class': ''}}) }}
+       
+        </div>
+        <div class="input-field col s12 m6 ">
+         {{ form_row(form.telephone, {"attr": {'class': ''}}) }}
+          
+        </div>
+      </div>
+    
+      <div class="">
+        <div class="input-field col s12 ">
+         {{ form_row(form.message, {'attr': {'class': 'materialize-textarea'}}) }}
+         
+        </div>
+        <div class="col s12" style="display:flex; justify-content:center">
+        <button class="btn btn-primary"style="background-color: rgba(0, 0, 0, 0.863) ; width: 300px; ">{{ button_label|default('Envoyer un mail') }}</button>
+
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+<div class="peinture">
+       <div class="col s6 m6 peint">
+            <img src="/assets/images/profil/pngwing.com (27).png" style="width: 300px;">
+        </div>
+</div>
+{{ form_end(form) }}
+{% endblock %}

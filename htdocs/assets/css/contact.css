@@ -1,0 +1,18 @@
+.contactphoto{
+    width: 100%;
+    filter: grayscale(80%);
+}
+#rowcentercontact{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.contacpage{
+    text-align: center;
+    font-family: style Script, cursive;
+    font-size: 3rem;
+}
+.intro{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}

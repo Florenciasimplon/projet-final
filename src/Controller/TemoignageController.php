@@ -21,15 +21,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class TemoignageController extends AbstractController
 {
-    /**
-     * @Route("/", name="temoignage_index", methods={"GET"})
-     */
-    public function index(TemoignageRepository $temoignageRepository ): Response
-    {
-        return $this->render('temoignage/index.html.twig', [
-            'temoignages' => $temoignageRepository->findAll() ]);
-           
-    }
+  
 
     /**
      * @Route("/new/{id}", name="temoignage_new", methods={"GET","POST"})
@@ -80,7 +72,7 @@ class TemoignageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('temoignage_index');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('temoignage/edit.html.twig', [
@@ -100,6 +92,6 @@ class TemoignageController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('temoignage_index');
+        return $this->redirectToRoute('home');
     }
 }

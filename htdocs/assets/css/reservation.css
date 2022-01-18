@@ -17,6 +17,7 @@
 }
 #reservationavis{
     font-size: large;
+    margin-bottom: 3vw;
 }
 #reservationavis a{
     color: black;
@@ -68,12 +69,39 @@
 .condition p{
     font-size: x-large;
 }
+#buttonreservation{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3vw;
+}
+.click{
+    color: cornflowerblue;
+}
+#modalereservation p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
 @media (max-width:500px){
     .mareservations{
         font-family: 'Times New Roman', Times, serif;
         font-size: medium;
     }
     .condition p{
+        font-size: medium;
+    }
+    #buttonreservation{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    #deletebutton{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #reservationavis{
         font-size: medium;
     }
 }

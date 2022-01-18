@@ -22,17 +22,6 @@ use Symfony\Component\String\Slugger\SluggerInterface;
  */
 class RestaurantController extends AbstractController
 {
-    /**
-     * @Route("/", name="restaurant_index", methods={"GET"})
-     */
-    public function index(RestaurantRepository $restaurantRepository): Response
-    {
-        return $this->render('restaurant/index.html.twig', [
-            'restaurants' => $restaurantRepository->findAll(),
-          
-        ]);
-        
-    }
 
     /**
      * @Route("/{id}/new", name="restaurant_new", methods={"GET","POST"})
@@ -90,6 +79,10 @@ class RestaurantController extends AbstractController
      */
     public function edit(Request $request, Restaurant $restaurant, SluggerInterface $slugger): Response
     {
+        if (in_array('ROLE_RESTAURATEUR', $this->getUser()->getRoles()) && $restaurant->getUser()->getId() === $this->getUser()->getId()) {
+        }else{
+            return $this->redirectToRoute('home');
+        }
         $form = $this->createForm(RestaurantType::class, $restaurant);
         $form->handleRequest($request);
         $pictureRestaurants = $form->get('picture_restaurant')->getData();           
@@ -117,19 +110,19 @@ class RestaurantController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="restaurant_delete", methods={"POST"})
-     */
-    public function delete(Request $request, Restaurant $restaurant): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$restaurant->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($restaurant);
-            $entityManager->flush();
-        }
+    // /**
+    //  * @Route("/{id}", name="restaurant_delete", methods={"POST"})
+    //  */
+    // public function delete(Request $request, Restaurant $restaurant): Response
+    // {
+    //     if ($this->isCsrfTokenValid('delete'.$restaurant->getId(), $request->request->get('_token'))) {
+    //         $entityManager = $this->getDoctrine()->getManager();
+    //         $entityManager->remove($restaurant);
+    //         $entityManager->flush();
+    //     }
 
-        return $this->redirectToRoute('restaurant_index');
-    }
+    //     return $this->redirectToRoute('restaurant_index');
+    // }
 
 
 

@@ -23,6 +23,10 @@ class MenuController extends AbstractController
      */
     public function index(MenuRepository $menuRepository,Restaurant $restaurant): Response
     {
+        if ($this->getUser() && $this->getUser()->getId() === $restaurant->getUser()->getId()) {
+        }else{
+            return $this->redirectToRoute('home');
+        }
         return $this->render('menu/index.html.twig', [
             'menus' => $menuRepository->findBy(['restaurant' => $restaurant->getId()]),
             
@@ -34,6 +38,10 @@ class MenuController extends AbstractController
      */
     public function new(Request $request, RestaurantRepository $restaurantRepository, Restaurant $restaurant): Response
     {
+        if ($this->getUser() && $this->getUser()->getId() === $restaurant->getUser()->getId()) {
+        }else{
+            return $this->redirectToRoute('home');
+        }
         $menu = new Menu();
         $form = $this->createForm(MenuType::class, $menu);
         $form->handleRequest($request);
@@ -59,22 +67,17 @@ class MenuController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}/show", name="menu_show", methods={"GET"})
-     */
-    public function show(Menu $menu, Restaurant $restaurant): Response
-    {
-        return $this->render('menu/show.html.twig', [
-            'id'=>$restaurant->getId(),
-            'menu' => $menu,
-        ]);
-    }
 
     /**
      * @Route("/{id}/edit", name="menu_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Menu $menu): Response
+    public function edit(Request $request, Menu $menu, RestaurantRepository $restaurantRepository): Response
     {
+        $restaurant = $restaurantRepository->findOneBy(['user' =>$this->getUser()]);
+        if ($restaurant && $restaurant->getId() === $menu->getRestaurant()->getId()) {
+        }else{
+            return $this->redirectToRoute('home');
+        }
         $form = $this->createForm(MenuType::class, $menu);
         $form->handleRequest($request);
 

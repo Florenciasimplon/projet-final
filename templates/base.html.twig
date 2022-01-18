@@ -16,6 +16,7 @@
         <link href="{{ asset ("assets/css/menu.css")}}"rel="stylesheet">
         <link href="{{ asset ("assets/css/temoignage.css")}}"rel="stylesheet">
         <link href="{{ asset ("assets/css/reservation.css")}}"rel="stylesheet">
+        <link href="{{ asset ("assets/css/contact.css")}}"rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -87,6 +88,7 @@
         <li><a href="{{path('user_edit', { 'id' : app.user.id})}}"><i class="material-icons">add</i>Créer mon restaurant</a></li>
       {% endif %}
         <li><a href="{{ path('app_logout') }}"><i class="material-icons">phonelink_erase</i>Deconnexion</a></li>
+        <li><a href="{{ path('contact') }}"><i class="material-icons">contact_mail</i>Nous contacter</a></li>
         {# <li><a class="subheader">Subheader</a></li>
         <li><a class="waves-effect" href="#!">Third Link With Waves</a></li> #}
      {% endif %} 
@@ -124,7 +126,7 @@
             <div class="col s12 m6 contact">
                 <h6>Contact</h6>
                 <hr>
-                <a href="mailto:florenciasimplon@gmail.com" class="logocontact"><i class="fa fa-envelope-o" aria-hidden="true"></i></a> |<a class="logocontact" target="_blank" href="https://goo.gl/maps/NtRw1YevoPBfU2Db9"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                <a href="{{ path('contact') }}" class="logocontact"><i class="fa fa-envelope-o" aria-hidden="true"></i></a> |<a class="logocontact" target="_blank" href="https://goo.gl/maps/NtRw1YevoPBfU2Db9"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
             </div> 
             <div class="col s12 m6 contact">
                 <h6>HouseDîner</h6>
@@ -136,7 +138,7 @@
                  {% endif %}
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                  <a href="{{path('user_edit', { 'id' : app.user.id})}}"style="color:white"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>  Mon Profil</a>
-                |<a href="{{ path('app_logout') }}"style="color:white; background-color:black"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> Deconnexion</a>
+                | <a href="{{ path('app_logout') }}"style="color:white; background-color:black"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> Deconnexion</a>
                 {% endif %}
             </div>
             <div class="col s12 m12 copyright">

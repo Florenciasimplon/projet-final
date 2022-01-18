@@ -51,7 +51,7 @@
         <div class="container">
         {% for restaurant in restaurants %}
               <div class="row" id="carouselresponsive">
-              <div class="col s12 xl6" id="decohome" >
+              <div class="col s12 l6" id="decohome" >
                   <h4 class="nomrestaurants">{{restaurant.nomRestaurant}} </h4>
                   <p>{{restaurant.description}}</p>
                   <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">
@@ -61,11 +61,11 @@
                     </button>
                   </a> 
               </div>
-              <div class="col s12 xl4" id="imagescarouselrestaurants">
+              <div class="col s6 l4" id="imagescarouselrestaurants">
   
               
               </div>
-              <div class="col s12 xl6" id="imagescarouselrestaurants">
+              <div class="col s12 l6" id="imagescarouselrestaurants">
                <div class="carousel carousel-slider center" style="height:345px" >
                   {% for pictureRestaurants in restaurant.pictureRestaurant %}
                   <a class="carousel-item" href="#one!">
@@ -135,7 +135,12 @@
            <h5>Rejoignez-nous !</h5>
            <a  href ="{{path('app_register')}}" target="_blank" class="waves-effect btn-floating pulse"  style="background-color:#d0c07a;"><i class="material-icons right">star_border</i></a>
           </div>
-      </section>     
+          <div class="textpub" style="padding: 10px;">
+            <h5>Vous êtes restaurateur et souhaitez nous rejoindre ?</h5>
+           <a  href ="{{path('contact')}}" target="_blank" class="waves-effect btn pulse"  style="background-color:black;"><i class="material-icons right">email</i>Contactez-nous</a>
+          </div>
+      </section> 
+          
      
               
       

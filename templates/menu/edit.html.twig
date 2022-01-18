@@ -3,11 +3,13 @@
 {% block title %}Edit Menu{% endblock %}
 
 {% block body %}
-    <h1>Edit Menu</h1>
+<div class="modifiermenu">
+<p>Modifier mon menu</p>
+</div>
+    
 
     {{ include('menu/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('menu_index', {'id': menu.id}) }}">back to list</a>
-     <a href="{{ path('menu_new', {'id': menu.id}) }}">Create new</a>
-    {{ include('menu/_delete_form.html.twig') }}
+  <div Class="backgroundmenuor">
+        <img src="/assets/images/menu/pngwing.com (31).png"/>
+    </div>
 {% endblock %}

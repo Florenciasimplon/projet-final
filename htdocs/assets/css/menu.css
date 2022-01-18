@@ -30,6 +30,9 @@
 }
 #listmenucarte{
     font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center
 }
 #detailmenu{
     text-align: center;
@@ -94,12 +97,25 @@
     font-family: 'Times New Roman', Times, serif;
     font-weight:900
 }
+.modifiermenu p{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: xx-large;
+}
 @media (max-width:401px){
     .mapsloc{
         font-size: small;
     }
     #renseingments{
         font-size: 13px;
+    }
+    .modifiermenu p{
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+        font-size: 30px;
+    }
+    #listmenucarte{
+        font-size: x-small;
     }
 }
 

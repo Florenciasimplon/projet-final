@@ -21,54 +21,16 @@ use Symfony\Component\String\Slugger\SluggerInterface;
  */
 class UserController extends AbstractController
 {
-    /**
-     * @Route("/", name="user_index", methods={"GET"})
-     */
-    public function index(UserRepository $userRepository): Response
-    {
-        return $this->render('user/index.html.twig', [
-            'users' => $userRepository->findAll(),
-        ]);
-    }
-    
-    /**
-     * @Route("/new", name="user_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $user = new User();
-        $form = $this->createForm(User1Type::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('user_index');
-        }
-
-        return $this->render('user/new.html.twig', [
-            'user' => $user,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="user_show", methods={"GET"})
-     */
-    public function show(User $user): Response
-    {
-        return $this->render('user/show.html.twig', [
-            'user' => $user,
-        ]);
-    }
 
     /**
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, User $user, SluggerInterface $slugger, RestaurantRepository $restaurantRepository, TemoignageRepository $temoignageRepository, ReservationRepository $reservationRepository): Response
     {
+        if ($this->getUser() && $this->getUser()->getId() === $user->getId()) {
+        }else{
+            return $this->redirectToRoute('home');
+        }
         $form = $this->createForm(User1Type::class, $user);
         $form->handleRequest($request); 
         $picture = $form->get('picture')->getData();

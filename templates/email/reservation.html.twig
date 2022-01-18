@@ -1,0 +1,36 @@
+<h1>HouseDîner</h1>
+<h2>Reservation {{restaurant.nomRestaurant}} HouseDîner</h2>
+<div class="">
+    <table class="">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Informations</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Nom</td>
+            <td>{{user.nom}}</td>
+        </tr>
+        <tr>
+            <td>Prénom</td>
+            <td>{{user.prenom}}</td>
+        </tr>
+        <tr>
+            <td>Téléphone</td>
+            <td>0{{user.telephone}}</td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td>{{reservation.heureReservation|date('H:i')}}</td>
+        </tr>
+        <tr>
+            <td>Heure</td>
+            <td>{{reservation.dateDeReservation|date('d M Y')}}</td>
+        </tr>
+
+        <tbody>
+    </table>
+    <p>Répondre dans les plus brefs délais</p>
+</div>

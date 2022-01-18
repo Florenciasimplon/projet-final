@@ -26,7 +26,7 @@ class HomeController extends AbstractController
     {
         return $this->render('home/index.html.twig', [
             'restaurants' => $restaurantRepository->findAll(),
-            'temoignage' => $temoignageRepository->findBy([],[], 3),
+            'temoignage' => $temoignageRepository->findBy([],['date' => 'DESC'],3),
             'user' => $userRepository->findAll(),
         ]);
     }
@@ -36,24 +36,13 @@ class HomeController extends AbstractController
     public function contact(Request $request, MailerInterface $mailer): Response
     {
         $form = $this->createFormBuilder()
-            ->add('nom', TextType::class, [
-             
-            ])
-            ->add('prenom', TextType::class, [
-                
-            ])
-            ->add('email', EmailType::class, [
-                
-            ])
-            ->add('telephone', NumberType::class, [
-                
-            ])
-
-            ->add('message', TextareaType::class, [
-                
-            ])
-                        
+            ->add('nom', TextType::class)
+            ->add('prenom', TextType::class)
+            ->add('email', EmailType::class)
+            ->add('telephone', NumberType::class)
+            ->add('message', TextareaType::class)
             ->getForm();
+            
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
@@ -63,7 +52,7 @@ class HomeController extends AbstractController
                         ->from(new Address($data['email'], $data['nom'].' '. $data['prenom']))
                         ->to('florenciasimplon@gmail.com')
                         ->subject('Prise de contact')
-                        ->htmlTemplate('home/email.html.twig')
+                        ->htmlTemplate('email/email.html.twig')
                         ->context([
                             'nom' => $data['nom'],
                             'prenom' => $data['prenom'],
@@ -76,7 +65,7 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('home');
 
         }
-        return $this->render('home/contact.html.twig', [
+        return $this->render('email/contact.html.twig', [
             'form' =>$form->createView(),
         ]);
     }

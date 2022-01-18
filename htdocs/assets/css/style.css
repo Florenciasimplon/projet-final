@@ -295,6 +295,11 @@ section.image2{
   #picturetroisgros img{
     height: 267px;
   }
+  #decohome{
+    
+   max-height: 450px;
+  
+  }
 }
 @media (max-width: 601px) {
   .type{

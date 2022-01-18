@@ -145,7 +145,7 @@
         <div class="row"id="rowmodal">
 
        
-        <div class="col s3" id="imagemodal">
+        <div class="col s12" id="imagemodal">
          <div class="modalname">
           {{temoignage.user.nom}}
           {{temoignage.user.prenom}}
@@ -159,11 +159,11 @@
         {# <a href="{{ path('restaurant_show', {'id': temoignage.restaurant.id}) }}" class="lienrestaucom">
         <p class="comrestau">Restaurant {{temoignage.restaurant.nomRestaurant}}</p>
         </a> #}
-        <div class="col s6">
+        <div class="col s12">
         <p><i class="fa fa-quote-left" aria-hidden="true"></i> {{temoignage.commentaire}}</p>
         </div>      
-        <div class="col s3 commodal">⭐️⭐️⭐️⭐️⭐️
-        
+        <div class="col s12 commodal">
+            <p>Note : {{temoignage.note}}/5</p>
            <p>Publié le {{ temoignage.date|date("d M Y") }} </p>
         </div>
         

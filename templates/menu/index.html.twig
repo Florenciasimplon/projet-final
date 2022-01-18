@@ -4,7 +4,7 @@
 
 {% block body %}
  <div class="row">
-    <div class="col s4 m12 backgroundmenulist">
+    <div class="col s12 m12 backgroundmenulist">
     </div>
 </div>
 <div class="container">
@@ -46,14 +46,14 @@
                 </li>
                 </ul>
               <div class="row">
-           <div class="col s12 m6">
+           <div class="col s12 m6"style="display: flex;justify-content: center;">
                 {{ include('menu/_delete_form.html.twig') }}
                 </div>
                 <div class="col s12 m6">
-                <a href="{{ path('menu_edit', {'id': menu.id}) }}">edit</a>
+                <a href="{{ path('menu_edit', {'id': menu.id}) }}"class="lienmodif">Modifier mon menu</a>
+                  <a href="{{ path('menu_new', {'id': menu.restaurant.id}) }}" class="lienmodif">Ajouter un menu</a>
                 </div>
                  </div>
-                  <a href="{{ path('menu_new', {'id': menu.restaurant.id}) }}" class="lienmodif">Ajouter un menu</a>
         {% endfor %}
     </div>
     <div Class="backgroundmenuor">
